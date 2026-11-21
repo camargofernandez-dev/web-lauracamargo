@@ -127,8 +127,12 @@ function itemMedio(a) {
   const titulo = a.enlace && !yt
     ? `<a href="${esc(safeUrl(a.enlace))}" target="_blank" rel="noopener">${esc(a.titulo)} <span aria-hidden="true">↗</span></a>`
     : esc(a.titulo);
+  const foto = a.imagen && !yt
+    ? `<img class="medio-img" src="${esc(img(a.imagen))}" alt="" loading="lazy">`
+    : "";
   return `
   <article class="medio" data-tipo="${esc(a.tipo)}">
+    ${foto}
     <div class="medio-meta"><span class="etiqueta">${esc(a.tipo)}</span><time>${fmtFecha(a.fecha)}</time></div>
     <h3>${titulo}</h3>
     <p class="medio-fuente">${esc(a.medio)}</p>
@@ -250,7 +254,10 @@ const PAGES = {
     const libro = await load("libro");
     const resenas = (libro.resenas || [])
       .filter((r) => r.cita)
-      .map((r) => `<blockquote><p>“${esc(r.cita)}”</p><cite>— ${esc(r.fuente)}</cite></blockquote>`)
+      .map(
+        (r) =>
+          `<blockquote><p>${r.enlace ? `<a href="${esc(safeUrl(r.enlace))}" target="_blank" rel="noopener">${esc(r.cita)} ↗</a>` : esc(r.cita)}</p><cite>${esc(r.fuente)}</cite></blockquote>`
+      )
       .join("");
     return `
     <section class="libro-pagina">
@@ -269,7 +276,7 @@ const PAGES = {
       <h2>Sinopsis</h2>
       ${paras(libro.sinopsis)}
       ${libro.fragmento ? `<p><a class="btn" href="${esc(img(libro.fragmento))}" target="_blank" rel="noopener">Leer un fragmento (PDF)</a></p>` : ""}
-      ${resenas ? `<h2>Lo que se ha dicho</h2><div class="resenas">${resenas}</div>` : ""}
+      ${resenas ? `<h2>Reseñas y críticas</h2><div class="resenas">${resenas}</div>` : ""}
     </section>`;
   },
 
@@ -304,7 +311,7 @@ const PAGES = {
   async "sobre-mi"(sitio) {
     return `
     <section class="wrap seccion sobre">
-      ${retrato(sitio, "sobre-retrato")}
+      ${retrato({ ...sitio, foto: sitio.foto_secundaria || sitio.foto }, "sobre-retrato")}
       <div>
         <p class="kicker">Sobre mí</p>
         <h1>${esc(sitio.nombre)}</h1>
@@ -344,6 +351,18 @@ const PAGES = {
     </section>`;
   },
 };
+
+/* ---------- Estilos añadidos (v1.0) ---------- */
+
+document.head.insertAdjacentHTML(
+  "beforeend",
+  `<style>
+  .medio-img{width:calc(100% + 3rem);margin:-1.5rem -1.5rem 1rem;max-width:none;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radio) var(--radio) 0 0}
+  blockquote p a{color:var(--libro);text-decoration:none}
+  blockquote p a:hover{text-decoration:underline}
+  .retrato{box-shadow:0 18px 40px rgba(29,36,51,.12)}
+  </style>`
+);
 
 /* ---------- Arranque ---------- */
 
