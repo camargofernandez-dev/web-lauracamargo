@@ -1,0 +1,18 @@
+{
+  "titulo": "Título del libro",
+  "subtitulo": "Subtítulo del libro",
+  "editorial": "Editorial",
+  "anio": "2026",
+  "portada": "",
+  "gancho": "Una frase gancho que invite a leer el libro.",
+  "sinopsis": "Sinopsis del libro.\n\nPuedes escribir varios párrafos.",
+  "fragmento": "",
+  "compra": [
+    { "tienda": "Editorial", "url": "" },
+    { "tienda": "Casa del Libro", "url": "" },
+    { "tienda": "Amazon", "url": "" }
+  ],
+  "resenas": [
+    { "cita": "Una cita breve de una reseña o de un lector destacado.", "fuente": "Medio o persona" }
+  ]
+}
