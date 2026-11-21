@@ -1,18 +1,22 @@
 {
-  "titulo": "Título del libro",
-  "subtitulo": "Subtítulo del libro",
-  "editorial": "Editorial",
-  "anio": "2026",
-  "portada": "",
-  "gancho": "Una frase gancho que invite a leer el libro.",
-  "sinopsis": "Sinopsis del libro.\n\nPuedes escribir varios párrafos.",
+  "titulo": "Trumpismo discursivo",
+  "subtitulo": "Origen y expansión del discurso de la ola reaccionaria global",
+  "editorial": "Editorial Verbum",
+  "anio": "2024",
+  "portada": "media/portada-trumpismo-discursivo.jpg",
+  "gancho": "Cómo el estilo agresivo, simplista y provocador de Donald Trump se ha convertido en el modelo de comunicación de la extrema derecha global.",
+  "sinopsis": "Las narrativas reaccionarias del primer cuarto de siglo están moldeando una ideología y un sentido común de época excluyentes. Este libro ofrece un análisis profundo y crítico del discurso de la extrema derecha actual: su origen, su expansión y sus efectos en la política global contemporánea, en donde el estilo comunicativo de Donald Trump actúa como catalizador clave.\n\nPartiendo de la caracterización del discurso fascista en la primera mitad del siglo XX, se analizan los discursos de los shocks globales del neoliberalismo en el primer cuarto de siglo y las estrategias comunicativas de las nuevas derechas en la era postdigital, prestando especial atención a la circulación de sus discursos en las redes sociales y a los efectos de copia propios de la era de la imitación liberal.\n\nLos imaginarios sociodiscursivos diseminados por la extrema derecha, los rasgos del discurso populista y la pose enunciativa antiestablishment son abordados para dar luz al fenómeno del trumpismo discursivo, que ha redefinido la comunicación política contemporánea con la internacionalización de un estilo agresivo, simplista y provocador para escandalizar, polarizar y confundir.",
   "fragmento": "",
   "compra": [
-    { "tienda": "Editorial", "url": "" },
-    { "tienda": "Casa del Libro", "url": "" },
-    { "tienda": "Amazon", "url": "" }
+    { "tienda": "Editorial Verbum", "url": "https://editorialverbum.es/libro/trumpismo-discursivo/" },
+    { "tienda": "Amazon", "url": "https://www.amazon.es/Trumpismo-discursivo-expansi%C3%B3n-discurso-reaccionaria/dp/B0DP2XYMN2" }
   ],
   "resenas": [
-    { "cita": "Una cita breve de una reseña o de un lector destacado.", "fuente": "Medio o persona" }
+    { "cita": "Cómo activar el miedo para ganar", "fuente": "Ruth Ferrero Turrión, Política Exterior, 226 (2025)", "enlace": "https://www.politicaexterior.com/articulo/como-activar-el-miedo-para-ganar-2/" },
+    { "cita": "Reseña de «Trumpismo discursivo»", "fuente": "David del Pino Díaz, Revista Española de Ciencia Política, 68 (2025)", "enlace": "https://recyt.fecyt.es/index.php/recp/article/view/114168" },
+    { "cita": "Reseña de «Trumpismo discursivo»", "fuente": "Pedro Fernández Riquelme, Lingüística en la Red, 21 (2024)", "enlace": "https://ebuah.uah.es/dspace/handle/10017/65307" },
+    { "cita": "Reseña de «Trumpismo discursivo»", "fuente": "Francisco Óscar Checa Fernández, Refracción, 11 (2025)", "enlace": "https://revistarefraccion.com/11/11_06_RESENA_1_LAURA-CAMARGO-FERNANDEZ_TRUMPISMO-DISCURSIVO.pdf" },
+    { "cita": "Fascismo de ida y vuelta", "fuente": "Luis González, Puntoycoma, 186 (2025)", "enlace": "https://op.europa.eu/webpub/dgt/puntoycoma/documents/pyc_186_es.pdf" },
+    { "cita": "Conceptos del trumpismo discursivo", "fuente": "Xavier Peitybi, Política Creativa (2025)", "enlace": "https://www.politicacreativa.com/p/conceptos-del-trumpismo-discursivo" }
   ]
 }
