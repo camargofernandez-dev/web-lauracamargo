@@ -1,0 +1,25 @@
+{
+  "introduccion": "Mi trabajo se organiza en varias líneas de investigación complementarias. Escribe aquí una introducción general.",
+  "lineas": [
+    {
+      "titulo": "Línea de investigación 1",
+      "resumen": "Resumen de una o dos frases que aparece en la tarjeta de la página de inicio.",
+      "descripcion": "Descripción más amplia de esta línea: preguntas, enfoque, proyectos.\n\nPuedes escribir varios párrafos.",
+      "publicaciones": [
+        { "referencia": "Apellido, N. (2025). Título del artículo. Revista, 12(3), 45–67.", "enlace": "" }
+      ]
+    },
+    {
+      "titulo": "Línea de investigación 2",
+      "resumen": "Resumen de una o dos frases que aparece en la tarjeta de la página de inicio.",
+      "descripcion": "Descripción más amplia de esta línea.",
+      "publicaciones": []
+    },
+    {
+      "titulo": "Línea de investigación 3",
+      "resumen": "Resumen de una o dos frases que aparece en la tarjeta de la página de inicio.",
+      "descripcion": "Descripción más amplia de esta línea.",
+      "publicaciones": []
+    }
+  ]
+}
