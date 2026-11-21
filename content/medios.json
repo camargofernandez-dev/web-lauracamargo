@@ -2,140 +2,13 @@
   "introduccion": "Entrevistas, apariciones en televisión, radio y prensa, y participación en conferencias y presentaciones.",
   "apariciones": [
     {
-      "tipo": "Televisión",
-      "titulo": "Presentación de «Trumpismo discursivo» en La Noche en 24h",
-      "medio": "Canal 24 Horas, TVE",
-      "fecha": "2025-03-17",
-      "enlace": "",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Radio",
-      "titulo": "Trumpismo discursivo y propaganda reaccionaria",
-      "medio": "A vivir que son dos días, Cadena SER",
-      "fecha": "2025-01-04",
-      "enlace": "https://www.ivoox.com/en/humoristas-graficos-trumpismo-discursivo-propaganda-reaccionaria-audios-mp3_rf_137455081_1.html",
-      "descripcion": "Conversación con los humoristas gráficos del programa sobre el ensayo."
-    },
-    {
-      "tipo": "Radio",
-      "titulo": "«La batalla no la han ganado los indignados que estaban en las plazas, sino los neoliberales»",
-      "medio": "Radio Mallorca, Cadena SER",
-      "fecha": "2024-12-12",
-      "enlace": "https://cadenaser.com/baleares/2024/12/12/laura-camargo-la-batalla-no-la-han-ganado-los-indignados-que-estaban-en-las-plazas-sino-los-neoliberales-que-decian-que-la-gente-de-abajo-se-buscara-la-vida-radio-mallorca/",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Televisión",
-      "titulo": "Análisis de la figura de Donald Trump en El Tablero",
-      "medio": "Canal Red",
-      "fecha": "2025-02-14",
-      "enlace": "https://www.diario-red.com/canal-red/laura-camargo-autora-trumpismo-discursivo-analiza-tablero-figura-donald-trump-es-muy-egocentrico-necesita-ser-protagonista/20250214180809042782.html",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Radio",
-      "titulo": "¿Trumpismo discursivo como ideología global?",
-      "medio": "Mañanas Blu 10:30, Blu Radio (Colombia)",
-      "fecha": "2025-09-23",
-      "enlace": "https://www.bluradio.com/mundo/trompismo-discursivo-como-ideologia-global-asi-lo-explica-experta-en-linguistica-pr30",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Entrevista",
-      "titulo": "«Veremos suspensiones de derechos básicos que se daban por sentados»",
-      "medio": "Público",
-      "fecha": "2025-01-26",
-      "enlace": "https://www.publico.es/politica/laura-camargo-analista-discurso-trump-veremos-suspensiones-derechos-basicos-daban-sentados.html",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Entrevista",
-      "titulo": "«Trump, igual que Ayuso, quiere que hablemos todo el rato de lo que dice y no de lo que hace»",
-      "medio": "El Salto",
-      "fecha": "2025-02-09",
-      "enlace": "https://www.elsaltodiario.com/donald-trump/laura-camargo-trumpismo-igual-ayuso-quiere-hablemos-todo-rato-lo-dice-no-hace",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Entrevista",
-      "titulo": "«El trumpismo discursivo ha impulsado un cambio radical en la forma de comunicar de las derechas globales»",
-      "medio": "Viento Sur",
-      "fecha": "2025-02-22",
-      "enlace": "https://vientosur.info/laura-camargo-el-trumpismo-discursivo-ha-impulsado-un-cambio-radical-en-la-forma-de-comunicar-de-las-derechas-globales/",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Entrevista",
-      "titulo": "«El trumpismo está matando la globalización capitalista para salvar el capital»",
-      "medio": "CTXT",
-      "fecha": "2025-04-24",
-      "enlace": "https://ctxt.es/es/20250401/Politica/49034/Steven-Forti-Laura-Camargo-trumpismo-globalizacion-capitalismo-EEUU-extrema-derecha.htm",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Entrevista",
-      "titulo": "«La manera en què Vox parla de llengua a les Illes és un exemple clar de propaganda autoritària»",
-      "medio": "Ara Balears",
-      "fecha": "2025-01-03",
-      "enlace": "https://www.arabalears.cat/politica/laura-camargo-manera-vox-parla-llengua-illes-exemple-clar-propaganda-autoritaria_1_5244114.html",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Entrevista",
-      "titulo": "Entrevista sobre «Trumpismo discursivo»",
-      "medio": "Última Hora",
-      "fecha": "2024-12-19",
-      "enlace": "https://www.ultimahora.es/noticias/local/2024/12/19/2293813/parte-clase-trabajadora-pasado-apoyar-derechas.html",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Entrevista",
-      "titulo": "«Soñé que hablaba con Trump y me reía…»",
-      "medio": "Diario de Mallorca",
-      "fecha": "2024-12-21",
-      "enlace": "https://www.diariodemallorca.es/mallorca/2024/12/21/laura-camargo-sone-hablaba-trump-112815091.html",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Entrevista",
-      "titulo": "«Trump pretende que los presidentes latinoamericanos sean vasallos de los intereses del emperador»",
-      "medio": "la diaria (Uruguay)",
-      "fecha": "2026-02-02",
-      "enlace": "https://ladiaria.com.uy/feminismos/articulo/2026/2/laura-camargo-fernandez-sociolinguista-trump-pretende-que-los-presidentes-latinoamericanos-sean-vasallos-de-los-intereses-del-emperador/",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Entrevista",
-      "titulo": "«Lo que viene es gordísimo y no nos hemos hecho a la idea»",
-      "medio": "Última Hora",
-      "fecha": "2026-05-28",
-      "enlace": "https://www.ultimahora.es/noticias/local/2026/05/28/2638563/laura-camargo-viene-gordisimo-nos-hemos-hechos-idea.html",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Entrevista",
-      "titulo": "«El cicle polític de l'extrema dreta no és inevitable»",
-      "medio": "El Temps",
-      "fecha": "2026-10-01",
-      "enlace": "https://www.eltemps.cat/article/67890/laura-camargo-el-cicle-politic-de-lextrema-dreta-no-es-inevitable",
-      "descripcion": ""
-    },
-    {
       "tipo": "Prensa",
-      "titulo": "La (im)posibilidad de un pucherazo: la antipolítica se instala en campaña",
-      "medio": "El Salto",
-      "fecha": "2026-10-13",
-      "enlace": "https://www.elsaltodiario.com/partido-popular/im-posibilidad-un-pucherazo-antipolitica-se-instalan-campana-electoral",
-      "descripcion": "Participa como experta en análisis del discurso."
-    },
-    {
-      "tipo": "Prensa",
-      "titulo": "L'estratègia victimista de Vox per atacar la llengua i la immigració",
+      "titulo": "Anar al gra i provocar: el secret de Vox Balears per arrasar a les xarxes",
       "medio": "Ara Balears",
-      "fecha": "2025-05-12",
-      "enlace": "https://www.arabalears.cat/politica/l-estrategia-victimista-vox-atacar-llengua-immigracio_1_5374644.html",
-      "descripcion": "Participa como experta en análisis del discurso."
+      "fecha": "2026-11-18",
+      "enlace": "https://www.arabalears.cat/politica/gra-provocar-secret-vox-balears-arrasar-xarxes_1_5902615.html",
+      "descripcion": "Participa como experta en análisis del discurso.",
+      "imagen": ""
     },
     {
       "tipo": "Prensa",
@@ -143,167 +16,8 @@
       "medio": "Ara Balears",
       "fecha": "2026-10-23",
       "enlace": "https://es.arabalears.cat/politica/jovenes-cantan-cara-sol_1_5888984.html",
-      "descripcion": "Participa como experta en análisis del discurso."
-    },
-    {
-      "tipo": "Prensa",
-      "titulo": "Anar al gra i provocar: el secret de Vox Balears per arrasar a les xarxes",
-      "medio": "Ara Balears",
-      "fecha": "2026-11-18",
-      "enlace": "https://www.arabalears.cat/politica/gra-provocar-secret-vox-balears-arrasar-xarxes_1_5902615.html",
-      "descripcion": "Participa como experta en análisis del discurso."
-    },
-    {
-      "tipo": "Podcast",
-      "titulo": "Entrevista sobre «Trumpismo discursivo»",
-      "medio": "Sobrevivir al Descalabro",
-      "fecha": "2026-01-29",
-      "enlace": "https://sobreviviraldescalabro.org/laura-camargo/",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Podcast",
-      "titulo": "La era del trumpismo discursivo",
-      "medio": "Sociología Inquieta",
-      "fecha": "2026-02-23",
-      "enlace": "https://sociologiainquieta.substack.com/p/la-era-del-trumpismo-discursivo-con",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Podcast",
-      "titulo": "Utopía X. Episodio 1: Desde la crisis de 2008 a Trump",
-      "medio": "El Salto",
-      "fecha": "2026-04-13",
-      "enlace": "https://www.elsaltodiario.com/utopia-x/podcast-episodio-primero-raices-extrema-derecha-del-siglo-xxi",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Conferencia",
-      "titulo": "Ponencia en el Aplec Jove sobre la expansión del fascismo y su discurso",
-      "medio": "Montuïri (Mallorca)",
-      "fecha": "2023-09-02",
-      "enlace": "",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Conferencia",
-      "titulo": "Conferencia inaugural del 6è Niu SOCS de sociolingüística",
-      "medio": "GRESIB, Universitat de les Illes Balears (en línea)",
-      "fecha": "2024-03-22",
-      "enlace": "https://gresib.uib.cat/2024/02/19/niu-socs/",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Conferencia",
-      "titulo": "Presentación de «Trumpismo discursivo» con Fruela Fernández y Andrea Beltramo",
-      "medio": "Llibreria Drac Màgic, Palma",
-      "fecha": "2024-12-19",
-      "enlace": "",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Conferencia",
-      "titulo": "Presentación de «Trumpismo discursivo» con Juan Roch (UNED) y Ruth Ferrero (UCM)",
-      "medio": "Traficantes de Sueños, Madrid",
-      "fecha": "2025-03-14",
-      "enlace": "https://traficantes.net/actividad/trumpismo-discursivo-origen-y-expansi%C3%B3n-del-discurso-de-la-ola-reaccionaria-global",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Conferencia",
-      "titulo": "Debate con Carles Manera organizado por Palma XXI",
-      "medio": "Quars Llibres, Palma",
-      "fecha": "2025-04-25",
-      "enlace": "https://uepmallorca.app/palma-xxi-reuneix-manera-i-camargo-en-un-debat-obert/",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Conferencia",
-      "titulo": "Presentación de «Trumpismo discursivo»",
-      "medio": "Llibreria Espirafocs, Inca",
-      "fecha": "2025-05-06",
-      "enlace": "https://www.ultimahora.es/noticias/cultura/2025/05/07/2382187/libros-laura-camargo-presenta-ensayo-sobre-trumpismo.html",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Conferencia",
-      "titulo": "Presentación de «Trumpismo discursivo», con introducción de Ana Cestero",
-      "medio": "Instituto Franklin, Universidad de Alcalá",
-      "fecha": "2025-05-12",
-      "enlace": "https://institutofranklin.net/eventos/2025-05-12/presentacion-del-libro-trumpismo-discursivo",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Conferencia",
-      "titulo": "Els discursos d'odi de la dreta extrema",
-      "medio": "Casal de Cultura de Sóller",
-      "fecha": "2025-05-30",
-      "enlace": "https://mespersoller.cat/els-discursos-dodi-de-la-dreta-extrema/",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Conferencia",
-      "titulo": "Trumpisme discursiu. Anàlisi crítica del discurs de l'ona reaccionària global",
-      "medio": "Seminaris virtuals del GRESIB, UIB",
-      "fecha": "2025-06-20",
-      "enlace": "https://blocs.uib.cat/gresib/seminaris-virtuals-del-gresib/",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Conferencia",
-      "titulo": "Xerrada sobre l'extrema dreta arreu del món",
-      "medio": "Ateneu Popular La Fonera, Palma",
-      "fecha": "2025-06-21",
-      "enlace": "https://lautopica.org/es/activitat/invertides-dels-paisos-catalans-unides-contra-el-feixisme/",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Conferencia",
-      "titulo": "Del rechazo a la apropiación: estrategias cruzadas de género en la extrema derecha española",
-      "medio": "Ciclo «Going Extreme», Universitat Autònoma de Barcelona",
-      "fecha": "2025-11-20",
-      "enlace": "https://www.uab.cat/es/historia-moderna-contemporanea/noticias/20251112/goingextremecomolaextremaderechaestautilizandolasnarrativasextremistasenelambitodelgeneroylaciencia",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Conferencia",
-      "titulo": "Presentación de «Trumpismo discursivo» con Toby Miller y Gerardo Gutiérrez Cham",
-      "medio": "Feria Internacional del Libro de Guadalajara (México)",
-      "fecha": "2025-12-02",
-      "enlace": "https://diari.uib.cat/w/la-doctora-laura-camargo-presenta-el-llibre-%C2%ABtrumpismo-discursivo%C2%BB-a-la-fira-internacional-del-llibre-de-guadalajara",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Conferencia",
-      "titulo": "Presente y futuro de la situación sociolingüística del catalán",
-      "medio": "IX Foro Internacional de Lengua y Literatura Hispánicas, Universidad de Guadalajara (México)",
-      "fecha": "2025-12-02",
-      "enlace": "",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Conferencia",
-      "titulo": "Presentación de «Trumpismo discursivo»",
-      "medio": "Centro Abogados de Atocha, Madrid",
-      "fecha": "2026-04-07",
-      "enlace": "https://sintarimalibros.com/event/acudimos-al-centro-abogados-de-atocha-para-la-presentacion-de-trumpismo-discursivo-de-laura-camargo/",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Conferencia",
-      "titulo": "Tertulia sobre la extrema derecha y su impacto en Mallorca, con David Abril y Tomeu Martí",
-      "medio": "Obra Cultural Balear, Ca n'Alcover, Palma",
-      "fecha": "2026-07-08",
-      "enlace": "https://www.ultimahora.es/noticias/local/2026/07/07/2665299/ocb-debate-sobre-extrema-derecha-impacto-mallorca.html",
-      "descripcion": ""
-    },
-    {
-      "tipo": "Conferencia",
-      "titulo": "Presentación de «Fundamentos de Lingüística Materialista», de Pedro Fernández Riquelme",
-      "medio": "Centro MIRCo",
-      "fecha": "2026-10-08",
-      "enlace": "",
-      "descripcion": ""
+      "descripcion": "Participa como experta en análisis del discurso.",
+      "imagen": ""
     },
     {
       "tipo": "Conferencia",
@@ -311,7 +25,431 @@
       "medio": "Espai Sicília, Barcelona",
       "fecha": "2026-10-17",
       "enlace": "",
-      "descripcion": ""
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Prensa",
+      "titulo": "La (im)posibilidad de un pucherazo: la antipolítica se instala en campaña",
+      "medio": "El Salto",
+      "fecha": "2026-10-13",
+      "enlace": "https://www.elsaltodiario.com/partido-popular/im-posibilidad-un-pucherazo-antipolitica-se-instalan-campana-electoral",
+      "descripcion": "Participa como experta en análisis del discurso.",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Presentación de «Fundamentos de Lingüística Materialista», de Pedro Fernández Riquelme",
+      "medio": "Centro MIRCo",
+      "fecha": "2026-10-08",
+      "enlace": "",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Entrevista",
+      "titulo": "«El cicle polític de l'extrema dreta no és inevitable»",
+      "medio": "El Temps",
+      "fecha": "2026-10-01",
+      "enlace": "https://www.eltemps.cat/article/67890/laura-camargo-el-cicle-politic-de-lextrema-dreta-no-es-inevitable",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Tertulia sobre la extrema derecha y su impacto en Mallorca, con David Abril y Tomeu Martí",
+      "medio": "Obra Cultural Balear, Ca n'Alcover, Palma",
+      "fecha": "2026-07-08",
+      "enlace": "https://www.ultimahora.es/noticias/local/2026/07/07/2665299/ocb-debate-sobre-extrema-derecha-impacto-mallorca.html",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Entrevista",
+      "titulo": "«Lo que viene es gordísimo y no nos hemos hecho a la idea»",
+      "medio": "Última Hora",
+      "fecha": "2026-05-28",
+      "enlace": "https://www.ultimahora.es/noticias/local/2026/05/28/2638563/laura-camargo-viene-gordisimo-nos-hemos-hechos-idea.html",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Podcast",
+      "titulo": "Utopía X. Episodio 1: Desde la crisis de 2008 a Trump",
+      "medio": "El Salto",
+      "fecha": "2026-04-13",
+      "enlace": "https://www.elsaltodiario.com/utopia-x/podcast-episodio-primero-raices-extrema-derecha-del-siglo-xxi",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Presentación de «Trumpismo discursivo»",
+      "medio": "Centro Abogados de Atocha, Madrid",
+      "fecha": "2026-04-07",
+      "enlace": "https://sintarimalibros.com/event/acudimos-al-centro-abogados-de-atocha-para-la-presentacion-de-trumpismo-discursivo-de-laura-camargo/",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Podcast",
+      "titulo": "La era del trumpismo discursivo",
+      "medio": "Sociología Inquieta",
+      "fecha": "2026-02-23",
+      "enlace": "https://sociologiainquieta.substack.com/p/la-era-del-trumpismo-discursivo-con",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Entrevista",
+      "titulo": "«Trump pretende que los presidentes latinoamericanos sean vasallos de los intereses del emperador»",
+      "medio": "la diaria (Uruguay)",
+      "fecha": "2026-02-02",
+      "enlace": "https://ladiaria.com.uy/feminismos/articulo/2026/2/laura-camargo-fernandez-sociolinguista-trump-pretende-que-los-presidentes-latinoamericanos-sean-vasallos-de-los-intereses-del-emperador/",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Podcast",
+      "titulo": "Entrevista sobre «Trumpismo discursivo»",
+      "medio": "Sobrevivir al Descalabro",
+      "fecha": "2026-01-29",
+      "enlace": "https://sobreviviraldescalabro.org/laura-camargo/",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Presentación de «Trumpismo discursivo» con Toby Miller y Gerardo Gutiérrez Cham",
+      "medio": "Feria Internacional del Libro de Guadalajara (México)",
+      "fecha": "2025-12-02",
+      "enlace": "https://diari.uib.cat/w/la-doctora-laura-camargo-presenta-el-llibre-%C2%ABtrumpismo-discursivo%C2%BB-a-la-fira-internacional-del-llibre-de-guadalajara",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Presente y futuro de la situación sociolingüística del catalán",
+      "medio": "IX Foro Internacional de Lengua y Literatura Hispánicas, Universidad de Guadalajara (México)",
+      "fecha": "2025-12-02",
+      "enlace": "",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Del rechazo a la apropiación: estrategias cruzadas de género en la extrema derecha española",
+      "medio": "Ciclo «Going Extreme», Universitat Autònoma de Barcelona",
+      "fecha": "2025-11-20",
+      "enlace": "https://www.uab.cat/es/historia-moderna-contemporanea/noticias/20251112/goingextremecomolaextremaderechaestautilizandolasnarrativasextremistasenelambitodelgeneroylaciencia",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Radio",
+      "titulo": "¿Trumpismo discursivo como ideología global?",
+      "medio": "Mañanas Blu 10:30, Blu Radio (Colombia)",
+      "fecha": "2025-09-23",
+      "enlace": "https://www.bluradio.com/mundo/trompismo-discursivo-como-ideologia-global-asi-lo-explica-experta-en-linguistica-pr30",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Xerrada sobre l'extrema dreta arreu del món",
+      "medio": "Ateneu Popular La Fonera, Palma",
+      "fecha": "2025-06-21",
+      "enlace": "https://lautopica.org/es/activitat/invertides-dels-paisos-catalans-unides-contra-el-feixisme/",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Trumpisme discursiu. Anàlisi crítica del discurs de l'ona reaccionària global",
+      "medio": "Seminaris virtuals del GRESIB, UIB",
+      "fecha": "2025-06-20",
+      "enlace": "https://blocs.uib.cat/gresib/seminaris-virtuals-del-gresib/",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Els discursos d'odi de la dreta extrema",
+      "medio": "Casal de Cultura de Sóller",
+      "fecha": "2025-05-30",
+      "enlace": "https://mespersoller.cat/els-discursos-dodi-de-la-dreta-extrema/",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Radio",
+      "titulo": "Entrevista sobre «Trumpismo discursivo» en 24 Horas",
+      "medio": "Radio Nacional de España",
+      "fecha": "2025-05-13",
+      "enlace": "https://twitter.com/24horas_rne/status/1922398373937631281",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Prensa",
+      "titulo": "L'estratègia victimista de Vox per atacar la llengua i la immigració",
+      "medio": "Ara Balears",
+      "fecha": "2025-05-12",
+      "enlace": "https://www.arabalears.cat/politica/l-estrategia-victimista-vox-atacar-llengua-immigracio_1_5374644.html",
+      "descripcion": "Participa como experta en análisis del discurso.",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Presentación de «Trumpismo discursivo», con introducción de Ana Cestero",
+      "medio": "Instituto Franklin, Universidad de Alcalá",
+      "fecha": "2025-05-12",
+      "enlace": "https://institutofranklin.net/eventos/2025-05-12/presentacion-del-libro-trumpismo-discursivo",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Presentación de «Trumpismo discursivo»",
+      "medio": "Llibreria Espirafocs, Inca",
+      "fecha": "2025-05-06",
+      "enlace": "https://www.ultimahora.es/noticias/cultura/2025/05/07/2382187/libros-laura-camargo-presenta-ensayo-sobre-trumpismo.html",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Debate con Carles Manera organizado por Palma XXI",
+      "medio": "Quars Llibres, Palma",
+      "fecha": "2025-04-25",
+      "enlace": "https://uepmallorca.app/palma-xxi-reuneix-manera-i-camargo-en-un-debat-obert/",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Entrevista",
+      "titulo": "«El trumpismo está matando la globalización capitalista para salvar el capital»",
+      "medio": "CTXT",
+      "fecha": "2025-04-24",
+      "enlace": "https://ctxt.es/es/20250401/Politica/49034/Steven-Forti-Laura-Camargo-trumpismo-globalizacion-capitalismo-EEUU-extrema-derecha.htm",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Televisión",
+      "titulo": "Presentación de «Trumpismo discursivo» en La Noche en 24h",
+      "medio": "Canal 24 Horas, TVE",
+      "fecha": "2025-03-17",
+      "enlace": "https://www.rtve.es/play/videos/la-noche-en-24h/17-03-25/16495546/",
+      "descripcion": "",
+      "imagen": "media/la-noche-24h.jpg"
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Presentación de «Trumpismo discursivo» con Juan Roch (UNED) y Ruth Ferrero (UCM)",
+      "medio": "Traficantes de Sueños, Madrid",
+      "fecha": "2025-03-14",
+      "enlace": "https://traficantes.net/actividad/trumpismo-discursivo-origen-y-expansi%C3%B3n-del-discurso-de-la-ola-reaccionaria-global",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Televisión",
+      "titulo": "Entrevista sobre «Trumpismo discursivo»",
+      "medio": "Canal Red",
+      "fecha": "2025-03-01",
+      "enlace": "https://www.youtube.com/watch?v=gqcTosrqWHQ",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Entrevista",
+      "titulo": "«El trumpismo discursivo ha impulsado un cambio radical en la forma de comunicar de las derechas globales»",
+      "medio": "Viento Sur",
+      "fecha": "2025-02-22",
+      "enlace": "https://vientosur.info/laura-camargo-el-trumpismo-discursivo-ha-impulsado-un-cambio-radical-en-la-forma-de-comunicar-de-las-derechas-globales/",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Televisión",
+      "titulo": "Análisis de la figura de Donald Trump en El Tablero",
+      "medio": "Canal Red",
+      "fecha": "2025-02-14",
+      "enlace": "https://www.diario-red.com/canal-red/laura-camargo-autora-trumpismo-discursivo-analiza-tablero-figura-donald-trump-es-muy-egocentrico-necesita-ser-protagonista/20250214180809042782.html",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Entrevista",
+      "titulo": "«Trump, igual que Ayuso, quiere que hablemos todo el rato de lo que dice y no de lo que hace»",
+      "medio": "El Salto",
+      "fecha": "2025-02-09",
+      "enlace": "https://www.elsaltodiario.com/donald-trump/laura-camargo-trumpismo-igual-ayuso-quiere-hablemos-todo-rato-lo-dice-no-hace",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Entrevista",
+      "titulo": "«Veremos suspensiones de derechos básicos que se daban por sentados»",
+      "medio": "Público",
+      "fecha": "2025-01-26",
+      "enlace": "https://www.publico.es/politica/laura-camargo-analista-discurso-trump-veremos-suspensiones-derechos-basicos-daban-sentados.html",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Radio",
+      "titulo": "Trumpismo discursivo y propaganda reaccionaria",
+      "medio": "A vivir que son dos días, Cadena SER",
+      "fecha": "2025-01-04",
+      "enlace": "https://cadenaser.com/audio/1735982723237/",
+      "descripcion": "Conversación con los humoristas gráficos del programa sobre el ensayo.",
+      "imagen": ""
+    },
+    {
+      "tipo": "Entrevista",
+      "titulo": "«La manera en què Vox parla de llengua a les Illes és un exemple clar de propaganda autoritària»",
+      "medio": "Ara Balears",
+      "fecha": "2025-01-03",
+      "enlace": "https://www.arabalears.cat/politica/laura-camargo-manera-vox-parla-llengua-illes-exemple-clar-propaganda-autoritaria_1_5244114.html",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Entrevista",
+      "titulo": "«Soñé que hablaba con Trump y me reía…»",
+      "medio": "Diario de Mallorca",
+      "fecha": "2024-12-21",
+      "enlace": "https://www.diariodemallorca.es/mallorca/2024/12/21/laura-camargo-sone-hablaba-trump-112815091.html",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Entrevista",
+      "titulo": "Entrevista sobre «Trumpismo discursivo»",
+      "medio": "Última Hora",
+      "fecha": "2024-12-19",
+      "enlace": "https://www.ultimahora.es/noticias/local/2024/12/19/2293813/parte-clase-trabajadora-pasado-apoyar-derechas.html",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Presentación de «Trumpismo discursivo» con Fruela Fernández y Andrea Beltramo",
+      "medio": "Llibreria Drac Màgic, Palma",
+      "fecha": "2024-12-19",
+      "enlace": "",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Radio",
+      "titulo": "«La batalla no la han ganado los indignados que estaban en las plazas, sino los neoliberales»",
+      "medio": "Radio Mallorca, Cadena SER",
+      "fecha": "2024-12-12",
+      "enlace": "https://cadenaser.com/baleares/2024/12/12/laura-camargo-la-batalla-no-la-han-ganado-los-indignados-que-estaban-en-las-plazas-sino-los-neoliberales-que-decian-que-la-gente-de-abajo-se-buscara-la-vida-radio-mallorca/",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Presentación de «Trumpismo discursivo» (conversatorio en línea)",
+      "medio": "Refracción, revista de lingüística materialista",
+      "fecha": "2024-11-23",
+      "enlace": "https://www.mircouam.com/entradas/presentacion-del-libro-de-laura-camargo-trumpismos-discursivos-origen-y-expansion-del-discurso-de-la-ola-reaccionaria-global/",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Presentación de «Trumpismo discursivo»",
+      "medio": "Escuela de Jóvenes de Comisiones Obreras de Navarra",
+      "fecha": "2024-11-08",
+      "enlace": "",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Conferencia inaugural del 6è Niu SOCS de sociolingüística",
+      "medio": "GRESIB, Universitat de les Illes Balears (en línea)",
+      "fecha": "2024-03-22",
+      "enlace": "https://gresib.uib.cat/2024/02/19/niu-socs/",
+      "descripcion": "",
+      "imagen": "media/conferencia-socs.jpg"
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Ponencia en el Aplec Jove sobre la expansión del fascismo y su discurso",
+      "medio": "Montuïri (Mallorca)",
+      "fecha": "2023-09-02",
+      "enlace": "",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Experiències sobre integració sociolingüística a Mallorca per a neoparlants",
+      "medio": "Càtedra Ramon Llull, Universidad Autónoma de Madrid",
+      "fecha": "2023-03-16",
+      "enlace": "",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "La identidad de la mujer en el discurso de las dirigentes de la (ultra)derecha española",
+      "medio": "Sevilla",
+      "fecha": "2023-03-07",
+      "enlace": "",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "La influencia de los factores sociales edad, sexo o género y nivel educativo en la variación lingüística",
+      "medio": "Universidad de Alcalá, Madrid",
+      "fecha": "2021-05-11",
+      "enlace": "",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "El estudio de las identidades y las ideologías lingüísticas",
+      "medio": "Barcelona",
+      "fecha": "2021-05-04",
+      "enlace": "",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Desenvolupament i millora de la competència pragmàtica en nens i adolescents amb TEA i llenguatge funcional",
+      "medio": "Palma",
+      "fecha": "2021-02-26",
+      "enlace": "",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Presentació de la traducció del llibre «Llengua materna»",
+      "medio": "En línea",
+      "fecha": "2021-02-11",
+      "enlace": "",
+      "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "«En el país de los tuertos el ciego es el Presidente»: la ironía para expresar el malestar social",
+      "medio": "Universidad de Chile, Santiago de Chile",
+      "fecha": "2020-03-11",
+      "enlace": "",
+      "descripcion": "",
+      "imagen": ""
     }
   ]
 }
