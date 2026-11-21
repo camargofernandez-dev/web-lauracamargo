@@ -86,7 +86,8 @@ content:
     path: content/medios.json
     format: json
     fields:
-      - { name: introduccion, label: Introducción, type: text }
+      - { name: introduccion, label: "Introducción de la página Medios", type: text }
+      - { name: introduccion_conferencias, label: "Introducción de la página Conferencias", type: text }
       - name: apariciones
         label: Apariciones
         type: object
@@ -97,9 +98,10 @@ content:
             type: select
             options:
               values: [Entrevista, Prensa, Conferencia, Radio, Televisión, Podcast]
+            description: "«Conferencia» aparece en la página Conferencias; el resto, en Medios. Las conferencias cuyo título empieza por «Presentación» se agrupan como presentaciones del libro."
           - { name: titulo, label: Título, type: string }
           - { name: medio, label: "Medio, congreso o institución", type: string }
           - { name: fecha, label: Fecha, type: date }
-          - { name: enlace, label: "Enlace (si es de YouTube, el vídeo se verá en la web)", type: string }
+          - { name: enlace, label: "Enlace (si es de YouTube, se mostrará su miniatura)", type: string }
           - { name: descripcion, label: Descripción breve (opcional), type: text }
-          - { name: imagen, label: Foto (opcional), type: image }
+          - { name: imagen, label: "Foto (opcional; si no hay, se crea una portada con el nombre del medio)", type: image }
