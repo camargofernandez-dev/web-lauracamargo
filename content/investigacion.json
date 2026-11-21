@@ -1,25 +1,58 @@
 {
-  "introduccion": "Mi trabajo se organiza en varias líneas de investigación complementarias. Escribe aquí una introducción general.",
+  "introduccion": "Mi investigación estudia el español en uso desde tres enfoques complementarios: la sociolingüística, la pragmática y el análisis crítico del discurso. Me interesa cómo hablamos en la conversación cotidiana, cómo valoramos las variedades del español y cómo los discursos políticos construyen identidades y sentido común.",
   "lineas": [
     {
-      "titulo": "Línea de investigación 1",
-      "resumen": "Resumen de una o dos frases que aparece en la tarjeta de la página de inicio.",
-      "descripcion": "Descripción más amplia de esta línea: preguntas, enfoque, proyectos.\n\nPuedes escribir varios párrafos.",
+      "titulo": "Discurso de la extrema derecha y trumpismo discursivo",
+      "resumen": "Análisis crítico del estilo comunicativo de la ola reaccionaria global y de su circulación en las redes sociales.",
+      "descripcion": "Estudio el discurso político de la extrema derecha desde el análisis crítico del discurso: la propaganda autoritaria, los bulos, la deshumanización del adversario y la polarización, y cómo estos mensajes se difunden y se imitan en las redes. De este trabajo nace el concepto de «trumpismo discursivo», que da título a mi último libro.\n\nActualmente investigo también las derivas del antifeminismo y el feminacionalismo, y la representación de las mujeres en el discurso de las dirigentes de la derecha radical.",
       "publicaciones": [
-        { "referencia": "Apellido, N. (2025). Título del artículo. Revista, 12(3), 45–67.", "enlace": "" }
+        { "referencia": "Camargo, L. (2024). Trumpismo discursivo. Origen y expansión del discurso de la ola reaccionaria global. Madrid: Verbum.", "enlace": "https://editorialverbum.es/libro/trumpismo-discursivo/" },
+        { "referencia": "Camargo, L. y Polo-Artal, A. (2024). Representation of women in the digital discourse of Spanish far-right female leaders. Discourse & Communication, 18(1), 28-50.", "enlace": "https://doi.org/10.1177/17504813231211985" },
+        { "referencia": "Camargo, L. (2023). Tras las huellas del trumpismo discursivo en tres políticas españolas. Las campañas electorales en Twitter de Ayuso, Arrimadas y Olona. En El discurso como herramienta de control social (pp. 97-109). Peter Lang.", "enlace": "" },
+        { "referencia": "Polo-Artal, A. y Camargo, L. (2023). Narrativas de género excluyentes. La identidad de la mujer en el discurso de las dirigentes de la ultraderecha española. Peter Lang.", "enlace": "" },
+        { "referencia": "Camargo, L. y Urbán, M. (2022). Retórica, propaganda e identidad en la invasión de Ucrania. El antifascismo como argumento en los discursos de Putin y Zelenski. Refracción, 6, 283-312.", "enlace": "" },
+        { "referencia": "Camargo, L. (2021). El nuevo orden discursivo de la extrema derecha española: de la deshumanización a los bulos en un corpus de tuits de Vox sobre la inmigración. Cultura, lenguaje y representación, 26, 63-82.", "enlace": "http://dx.doi.org/10.6035/clr.5866" }
       ]
     },
     {
-      "titulo": "Línea de investigación 2",
-      "resumen": "Resumen de una o dos frases que aparece en la tarjeta de la página de inicio.",
-      "descripcion": "Descripción más amplia de esta línea.",
-      "publicaciones": []
+      "titulo": "Sociolingüística del español en Mallorca",
+      "resumen": "Variación, contacto de lenguas y actitudes lingüísticas hacia las variedades del español en un territorio bilingüe.",
+      "descripcion": "Coordino el equipo PRESEEA-Palma, dentro del Proyecto para el Estudio Sociolingüístico del Español de España y de América, con un corpus de habla íntegramente recogido, transcrito y disponible en línea. Participo además en PRECAVES XXI, un macroproyecto sobre creencias y actitudes hacia las variedades del español.\n\nEstudio cómo se percibe el castellano de Mallorca frente a otras variedades, y los fenómenos de contacto entre catalán y castellano en tiempo real y aparente.",
+      "publicaciones": [
+        { "referencia": "Camargo, L. y Méndez, B. (2025). La percepción de las variedades del español en Mallorca. Dialectología perceptiva a partir del PRECAVES XXI. Spanish in Context, 22(1), 1-34.", "enlace": "https://doi.org/10.1075/sic.00112.fer" },
+        { "referencia": "Camargo, L. y Méndez, B. (2025). Creencias y actitudes de los mallorquines hacia la variedad andina. Datos del PRECAVES XXI. Lengua y Sociedad, 24(1), 1-34.", "enlace": "https://doi.org/10.15381/lengsoc.v24i1.29585" },
+        { "referencia": "Méndez, B. y Camargo, L. (2025). Evaluation and perception of Spanish varieties by Majorcans: Distance, prestige and identity. En Language Attitudes and the Pursuit of Social Justice (pp. 251-275). Routledge.", "enlace": "" },
+        { "referencia": "Méndez, B. y Camargo, L. (2023). Creencias y actitudes de los mallorquines hacia la variedad lingüística chilena. Lenguas Modernas, 62, 237-265.", "enlace": "" },
+        { "referencia": "Camargo, L. y Grimalt, A. (2022). Nuevas y viejas funciones de «en plan». Estudio microdiacrónico en corpus orales y digitales del castellano de Mallorca en el siglo XXI. Revista de Investigación Lingüística, 25, 15-42.", "enlace": "" }
+      ]
     },
     {
-      "titulo": "Línea de investigación 3",
-      "resumen": "Resumen de una o dos frases que aparece en la tarjeta de la página de inicio.",
-      "descripcion": "Descripción más amplia de esta línea.",
-      "publicaciones": []
+      "titulo": "Pragmática y análisis de la conversación",
+      "resumen": "Los fenómenos de la lengua oral espontánea: el silencio comunicativo, la cita, los marcadores y las preguntas de eco.",
+      "descripcion": "Analizo la conversación espontánea desde una perspectiva interaccional: las funciones comunicativas del silencio, la representación del discurso ajeno en la narración oral, los marcadores del discurso o las interrogativas de eco.\n\nEsta línea conecta con la enseñanza de la pragmática del español como lengua extranjera, que impartí durante más de diez años.",
+      "publicaciones": [
+        { "referencia": "Pedrote, I. y Camargo, L. (2025). Las interrogativas de eco en el discurso oral: funciones pragmáticas y discursivas. Pragmalingüística, 33, 133-149.", "enlace": "https://doi.org/10.25267/Pragmalinguistica.2025.i.33.09" },
+        { "referencia": "Méndez, B. y Camargo, L. (2024). The use of silence in conversation among women in Spanish: an expression of feminine conversational style? Languages, 9(97), 1-18.", "enlace": "https://doi.org/10.3390/languages9030097" },
+        { "referencia": "Camargo, L. (2022). Registro coloquial en un atlas sociodialectal. La cita directa en narraciones del ALeCMan. Normas, 12, 169-191.", "enlace": "https://doi.org/10.7203/Normas.v12i1.25752" }
+      ]
+    },
+    {
+      "titulo": "Rap y discurso de los jóvenes",
+      "resumen": "El rap social en España como fuente de datos sociolingüísticos y como forma de expresión crítica.",
+      "descripcion": "Estudio el rap social español desde la sociolingüística y la etnografía de la comunicación: la variación léxica de los raperos mileniales, la interdiscursividad y la articulación discursiva de la rabia. Codirigí la primera tesis doctoral en un programa de doctorado español sobre sociolingüística y rap.",
+      "publicaciones": [
+        { "referencia": "Camargo, L. y Checa, F. (2024). La articulación discursiva de la rabia productiva en el rap de Gata Cattana y de Ayax y Prok. Teknokultura, 21(1), 39-48.", "enlace": "https://doi.org/10.5209/tekn.90499" },
+        { "referencia": "Checa, F. y Camargo, L. (2023). El rap como fuente de datos para el estudio del discurso de los jóvenes. Variabilidad léxica en raperos mileniales. Oralia, 26(2), 207-229.", "enlace": "https://doi.org/10.25115/oralia.v26i2.9505" },
+        { "referencia": "Checa, F. y Camargo, L. (2022). Interdiscursividad y variación estilística en la obra de Gata Cattana. Tonos Digital, 42, 1-33.", "enlace": "" }
+      ]
+    },
+    {
+      "titulo": "Competencia pragmática y TEA",
+      "resumen": "Desarrollo de la competencia pragmática en niños y adolescentes con trastorno del espectro autista y lenguaje funcional.",
+      "descripcion": "Investigo cómo mejorar la competencia pragmática —la capacidad de usar el lenguaje adecuadamente en contexto— en niños y adolescentes con trastorno del espectro autista y lenguaje funcional, en colaboración con profesionales de la intervención.",
+      "publicaciones": [
+        { "referencia": "Camargo, L. y Cortés, R. (2020). Desarrollo y mejora de la competencia pragmática en niños y adolescentes con trastorno del espectro autista y lenguaje funcional. Normas, 10, 1-22.", "enlace": "http://dx.doi.org/10.7203/Normas.v10i1.1" }
+      ]
     }
   ]
 }
