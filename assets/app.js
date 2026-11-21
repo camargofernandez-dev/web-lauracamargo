@@ -133,6 +133,23 @@ const ICONOS = {
 const icono = (n, cls = "") =>
   `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONOS[n] || ""}</svg>`;
 
+const LINEA_ESTILOS = [
+  { c1: "#6e2a20", c2: "#9a4334", i: "megafono" },
+  { c1: "#1f3a5f", c2: "#33598a", i: "mapa" },
+  { c1: "#24504d", c2: "#387571", i: "dialogo" },
+  { c1: "#45325f", c2: "#6a5190", i: "musica" },
+  { c1: "#7a5524", c2: "#a5763a", i: "puzle" },
+];
+Object.assign(ICONOS, {
+  megafono: '<path d="M3 10v4h3l6 4V6l-6 4z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/>',
+  mapa: '<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',
+  dialogo: '<path d="M4 4h10a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M19 9h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v3l-4-3h-3"/>',
+  musica: '<path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/>',
+  puzle: '<path d="M4 4h6v2a2 2 0 1 0 4 0V4h6v6h-2a2 2 0 1 0 0 4h2v6h-6v-2a2 2 0 1 0-4 0v2H4v-6h2a2 2 0 1 0 0-4H4z"/>',
+  articulo: '<path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h8M9 17h6"/>',
+  capitulo: '<path d="M2 5c3-1.5 6-1.5 10 1 4-2.5 7-2.5 10-1v14c-3-1.5-6-1.5-10 1-4-2.5-7-2.5-10-1z"/><path d="M12 6v14"/>',
+});
+
 const esPresentacion = (a) => a.tipo === "Conferencia" && /^presentaci/i.test(a.titulo || "");
 const esConferencia = (a) => a.tipo === "Conferencia";
 
@@ -282,38 +299,141 @@ const PAGES = {
 
   async investigacion() {
     const inv = await load("investigacion");
-    const indice = (inv.lineas || [])
-      .map((l, i) => `<li><a href="#${slug(l.titulo, i)}">${esc(l.titulo)}</a></li>`)
-      .join("");
-    const bloques = (inv.lineas || [])
+    const lineas = inv.lineas || [];
+    const pubs = [...(inv.publicaciones || [])]
+      .filter((p) => p.titulo)
+      .sort((a, b) => String(b.anio || "").localeCompare(String(a.anio || "")));
+    const proyectos = (inv.proyectos || []).filter((p) => p.titulo);
+    const lineaDe = (p) => lineas.findIndex((l) => l.titulo === p.linea);
+    const est = (i) => LINEA_ESTILOS[(i < 0 ? 4 : i) % LINEA_ESTILOS.length];
+    const nPubs = (i) => pubs.filter((p) => lineaDe(p) === i).length;
+
+    const tarjetas = lineas
       .map((l, i) => {
-        const pubs = (l.publicaciones || [])
-          .filter((p) => p.referencia)
-          .map(
-            (p) =>
-              `<li>${esc(p.referencia)}${p.enlace ? ` <a href="${esc(safeUrl(p.enlace))}" target="_blank" rel="noopener">Enlace ↗</a>` : ""}</li>`
-          )
-          .join("");
+        const e = est(i);
         return `
-        <article class="linea" id="${slug(l.titulo, i)}">
-          <span class="num">${String(i + 1).padStart(2, "0")}</span>
-          <div>
+        <a class="linea-card" href="#${slug(l.titulo, i)}" style="--c1:${e.c1};--c2:${e.c2}">
+          <span class="linea-card-top">${icono(e.i)}<b>${String(i + 1).padStart(2, "0")}</b></span>
+          <h3>${esc(l.titulo)}</h3>
+          <span class="linea-card-n">${nPubs(i)} ${nPubs(i) === 1 ? "publicación" : "publicaciones"}</span>
+        </a>`;
+      })
+      .join("");
+
+    const bloques = lineas
+      .map((l, i) => {
+        const e = est(i);
+        const n = nPubs(i);
+        return `
+        <article class="linea-bloque" id="${slug(l.titulo, i)}" style="--c1:${e.c1};--c2:${e.c2}">
+          <div class="linea-panel">
+            <span class="linea-num">${String(i + 1).padStart(2, "0")}</span>
+            ${icono(e.i, "linea-icono")}
+          </div>
+          <div class="linea-texto">
             <h2>${esc(l.titulo)}</h2>
             <p class="lead">${esc(l.resumen)}</p>
             ${paras(l.descripcion)}
-            ${pubs ? `<h3>Publicaciones relacionadas</h3><ul class="pubs">${pubs}</ul>` : ""}
+            ${n ? `<button class="btn btn-linea" data-ver-linea="${i}">Ver ${n === 1 ? "su publicación" : `sus ${n} publicaciones`} ↓</button>` : ""}
           </div>
         </article>`;
       })
       .join("");
+
+    const ordenTipos = ["Libro", "Artículo", "Capítulo de libro"];
+    const tipos = [...new Set(pubs.map((p) => p.tipo).filter(Boolean))].sort((a, b) => (ordenTipos.indexOf(a) + 9) % 9 - (ordenTipos.indexOf(b) + 9) % 9);
+    const plural = { "Libro": "Libros", "Artículo": "Artículos", "Capítulo de libro": "Capítulos de libro" };
+    const filtrosLinea = [`<button class="filtro" data-grupo="linea" data-filtro="todo" aria-pressed="true">Todas las líneas</button>`]
+      .concat(lineas.map((l, i) => `<button class="filtro" data-grupo="linea" data-filtro="${i}" aria-pressed="false"><span class="punto" style="background:${est(i).c1}"></span>${esc(l.titulo)}</button>`))
+      .join("");
+    const filtrosTipo = [`<button class="filtro" data-grupo="tipo" data-filtro="todo" aria-pressed="true">Todos los tipos</button>`]
+      .concat(tipos.map((t) => `<button class="filtro" data-grupo="tipo" data-filtro="${esc(t)}" aria-pressed="false">${esc(plural[t] || t)}</button>`))
+      .join("");
+
+    const enlacePub = (u) => (/^[\w-]+\.html/.test(u || "") ? u : safeUrl(u));
+    const tarjetaPub = (p) => {
+      const i = lineaDe(p);
+      const e = est(i);
+      const ic = p.tipo === "Libro" ? "libro" : p.tipo === "Artículo" ? "articulo" : "capitulo";
+      const interno = /^[\w-]+\.html/.test(p.enlace || "");
+      return `
+      <article class="pub" data-linea="${i}" data-tipo="${esc(p.tipo)}" style="--c1:${e.c1};--c2:${e.c2}">
+        <span class="pub-icono">${icono(ic)}</span>
+        <div class="pub-cuerpo">
+          <div class="pub-meta"><span class="etiqueta">${esc(p.tipo)}</span>${i >= 0 ? `<span class="pub-linea">${esc(lineas[i].titulo)}</span>` : ""}</div>
+          <h3>${esc(p.titulo)}</h3>
+          <p class="pub-autores">${esc(p.autores)} (${esc(p.anio)})</p>
+          <p class="pub-fuente">${esc(p.fuente)}</p>
+          ${p.enlace ? `<a class="pub-enlace" href="${esc(enlacePub(p.enlace))}"${interno ? "" : ' target="_blank" rel="noopener"'}>${interno ? "Ver el libro →" : "Leer en línea ↗"}</a>` : ""}
+        </div>
+      </article>`;
+    };
+    const anios = [...new Set(pubs.map((p) => String(p.anio || "")))];
+    const listaPubs = anios
+      .map((y) => `
+      <section class="anio-grupo pub-anio">
+        <h3 class="anio"><span>${esc(y)}</span></h3>
+        <div class="pubs-lista">${pubs.filter((p) => String(p.anio || "") === y).map(tarjetaPub).join("")}</div>
+      </section>`)
+      .join("");
+
+    const listaProy = proyectos
+      .map((p) => `
+      <article class="proyecto">
+        <span class="proyecto-periodo">${esc(p.periodo)}</span>
+        <h3>${esc(p.titulo)}</h3>
+        ${p.investigadores ? `<p><small>Investigación principal</small>${esc(p.investigadores)}</p>` : ""}
+        ${p.financiacion ? `<p><small>Financiación</small>${esc(p.financiacion)}</p>` : ""}
+        ${p.codigo ? `<p class="proyecto-codigo">${esc(p.codigo)}</p>` : ""}
+      </article>`)
+      .join("");
+
+    setTimeout(() => {
+      const estado = { linea: "todo", tipo: "todo" };
+      const aplicar = () => {
+        document.querySelectorAll(".pub").forEach((el) => {
+          el.hidden = (estado.linea !== "todo" && el.dataset.linea !== estado.linea) || (estado.tipo !== "todo" && el.dataset.tipo !== estado.tipo);
+        });
+        document.querySelectorAll(".pub-anio").forEach((g) => (g.hidden = ![...g.querySelectorAll(".pub")].some((m) => !m.hidden)));
+        document.querySelectorAll(".filtro").forEach((b) => b.setAttribute("aria-pressed", estado[b.dataset.grupo] === b.dataset.filtro));
+      };
+      document.querySelectorAll(".filtro").forEach((b) =>
+        b.addEventListener("click", () => {
+          estado[b.dataset.grupo] = b.dataset.filtro;
+          aplicar();
+        })
+      );
+      document.querySelectorAll("[data-ver-linea]").forEach((b) =>
+        b.addEventListener("click", () => {
+          estado.linea = b.dataset.verLinea;
+          estado.tipo = "todo";
+          aplicar();
+          document.getElementById("publicaciones").scrollIntoView({ behavior: "smooth" });
+        })
+      );
+    });
+
+    const cifras = [[pubs.length, "publicaciones"], [lineas.length, "líneas de investigación"], [proyectos.length, "proyectos financiados"]];
     return `
-    <header class="cabecera wrap">
-      <p class="kicker">Investigación</p>
-      <h1>Líneas de investigación</h1>
-      <div class="lead">${paras(inv.introduccion)}</div>
-      <ol class="indice">${indice}</ol>
-    </header>
-    <section class="wrap">${bloques}</section>`;
+    ${cabeceraPagina("Investigación", "Investigación", inv.introduccion, cifras, "")}
+    <section class="wrap">
+      <div class="lineas-grid">${tarjetas}</div>
+    </section>
+    <section class="wrap lineas-detalle">${bloques}</section>
+    <section class="publicaciones-sec" id="publicaciones">
+      <div class="wrap">
+        <h2 class="sec-titulo">Publicaciones</h2>
+        <div class="filtros">${filtrosLinea}</div>
+        <div class="filtros filtros-tipo">${filtrosTipo}</div>
+        ${listaPubs}
+      </div>
+    </section>
+    ${listaProy ? `
+    <section class="wrap proyectos-sec">
+      <h2 class="sec-titulo">Proyectos de investigación financiados</h2>
+      <p class="lead">Participo como miembro del equipo de investigación en estos proyectos competitivos.</p>
+      <div class="proyectos-lista">${listaProy}</div>
+    </section>` : ""}`;
   },
 
   async libro() {
