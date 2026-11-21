@@ -1,0 +1,16 @@
+{
+  "nombre": "Laura Camargo Fernández",
+  "cargo": "Investigadora",
+  "titular": "Escribe aquí una frase que resuma tu investigación y lo que te mueve.",
+  "presentacion": "Breve presentación de dos o tres líneas: tu campo, tu institución y los temas en los que trabajas. Este texto aparece en la página de inicio.",
+  "foto": "",
+  "biografia": "Escribe aquí tu biografía.\n\nPuedes separar los párrafos dejando una línea en blanco entre ellos.",
+  "cv": "",
+  "email": "contacto@lauracamargo.es",
+  "texto_contacto": "Para colaboraciones, entrevistas, invitaciones a conferencias o consultas sobre mi investigación, puedes escribirme a este correo.",
+  "enlaces": [
+    { "nombre": "ORCID", "url": "" },
+    { "nombre": "Google Scholar", "url": "" },
+    { "nombre": "LinkedIn", "url": "" }
+  ]
+}
