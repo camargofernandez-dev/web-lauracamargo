@@ -13,7 +13,8 @@ content:
       - { name: cargo, label: "Cargo (aparece encima de tu nombre)", type: string }
       - { name: titular, label: Frase principal de la portada, type: text }
       - { name: presentacion, label: Presentación (página de inicio), type: text }
-      - { name: foto, label: Foto, type: image }
+      - { name: foto, label: Foto principal (portada), type: image }
+      - { name: foto_secundaria, label: Foto de la página Sobre mí, type: image }
       - { name: biografia, label: "Biografía (página Sobre mí). Separa párrafos con una línea en blanco", type: text }
       - { name: cv, label: CV en PDF, type: file }
       - { name: email, label: Correo de contacto, type: string }
@@ -75,8 +76,9 @@ content:
         type: object
         list: true
         fields:
-          - { name: cita, label: Cita, type: text }
-          - { name: fuente, label: Fuente, type: string }
+          - { name: cita, label: Título o cita, type: text }
+          - { name: fuente, label: Autor y medio, type: string }
+          - { name: enlace, label: Enlace, type: string }
 
   - name: medios
     label: Medios y conferencias
@@ -100,3 +102,4 @@ content:
           - { name: fecha, label: Fecha, type: date }
           - { name: enlace, label: "Enlace (si es de YouTube, el vídeo se verá en la web)", type: string }
           - { name: descripcion, label: Descripción breve (opcional), type: text }
+          - { name: imagen, label: Foto (opcional), type: image }
