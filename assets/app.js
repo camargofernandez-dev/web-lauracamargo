@@ -6,7 +6,8 @@ const NAV = [
   ["index.html", "Inicio", "inicio"],
   ["investigacion.html", "Investigación", "investigacion"],
   ["libro.html", "El libro", "libro"],
-  ["medios.html", "Medios y conferencias", "medios"],
+  ["medios.html", "Medios", "medios"],
+  ["conferencias.html", "Conferencias", "conferencias"],
   ["sobre-mi.html", "Sobre mí", "sobre-mi"],
   ["contacto.html", "Contacto", "contacto"],
 ];
@@ -119,26 +120,91 @@ function botonesCompra(libro) {
     .join("");
 }
 
+const ICONOS = {
+  tv: '<rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/>',
+  radio: '<rect x="3" y="8" width="18" height="12" rx="2"/><circle cx="8.5" cy="14" r="2.8"/><path d="M14 12h4M14 16h4M7 8l10-5"/>',
+  mic: '<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4M8 22h8"/>',
+  prensa: '<path d="M4 4h13v16H6a2 2 0 0 1-2-2z"/><path d="M17 8h3v10a2 2 0 0 1-2 2"/><path d="M7 8h7M7 12h7M7 16h4"/>',
+  cita: '<path d="M6 7h5v5c0 3-2 5-5 6M14 7h5v5c0 3-2 5-5 6"/>',
+  atril: '<rect x="3" y="4" width="18" height="11" rx="1.5"/><path d="M12 15v5M8 21l4-3 4 3M7 11l3-2.5 3 2 4-3.5"/>',
+  libro: '<path d="M4 5a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2z"/><path d="M4 20a2 2 0 0 0 2 2h13v-4"/>',
+  play: '<path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/>',
+};
+const icono = (n, cls = "") =>
+  `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONOS[n] || ""}</svg>`;
+
+const esPresentacion = (a) => a.tipo === "Conferencia" && /^presentaci/i.test(a.titulo || "");
+const esConferencia = (a) => a.tipo === "Conferencia";
+
+function estilo(a) {
+  if (esPresentacion(a)) return { c1: "#6e2a20", c2: "#9a4334", i: "libro", cta: "Más información", etiqueta: "Presentación" };
+  return (
+    {
+      "Televisión": { c1: "#1f3a5f", c2: "#33598a", i: "tv", cta: "Ver programa" },
+      "Radio": { c1: "#7a2e22", c2: "#a34a3b", i: "radio", cta: "Escuchar" },
+      "Podcast": { c1: "#45325f", c2: "#6a5190", i: "mic", cta: "Escuchar" },
+      "Prensa": { c1: "#1d2433", c2: "#3b465c", i: "prensa", cta: "Leer artículo" },
+      "Entrevista": { c1: "#24504d", c2: "#387571", i: "cita", cta: "Leer entrevista" },
+      "Conferencia": { c1: "#1f3a5f", c2: "#2e6177", i: "atril", cta: "Más información" },
+    }[a.tipo] || { c1: "#1d2433", c2: "#3b465c", i: "cita", cta: "Ver" }
+  );
+}
+
 function itemMedio(a) {
+  const e = estilo(a);
   const yt = youtubeId(a.enlace);
-  const media = yt
-    ? `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${yt}" title="${esc(a.titulo)}" loading="lazy" allowfullscreen></iframe></div>`
-    : "";
-  const titulo = a.enlace && !yt
-    ? `<a href="${esc(safeUrl(a.enlace))}" target="_blank" rel="noopener">${esc(a.titulo)} <span aria-hidden="true">↗</span></a>`
-    : esc(a.titulo);
-  const foto = a.imagen && !yt
-    ? `<img class="medio-img" src="${esc(img(a.imagen))}" alt="" loading="lazy">`
-    : "";
+  const foto = a.imagen ? img(a.imagen) : yt ? `https://i.ytimg.com/vi/${yt}/hqdefault.jpg` : "";
+  const etiqueta = e.etiqueta || a.tipo;
+  const cover = foto
+    ? `<div class="cover cover-foto"><img src="${esc(foto)}" alt="" loading="lazy">${yt ? `<span class="cover-play">${icono("play")}</span>` : ""}</div>`
+    : `<div class="cover cover-gen" style="--c1:${e.c1};--c2:${e.c2}">
+        ${icono(e.i, "cover-fondo")}
+        <span class="cover-icono">${icono(e.i)}</span>
+        <span class="cover-medio">${esc(a.medio)}</span>
+      </div>`;
+  const cuerpo = `
+    ${cover}
+    <div class="medio-cuerpo">
+      <div class="medio-meta"><span class="etiqueta" style="--c1:${e.c1}">${esc(etiqueta)}</span><time>${fmtFecha(a.fecha)}</time></div>
+      <h3>${esc(a.titulo)}</h3>
+      ${foto ? `<p class="medio-fuente">${esc(a.medio)}</p>` : ""}
+      ${a.descripcion ? `<p class="medio-desc">${esc(a.descripcion)}</p>` : ""}
+      ${a.enlace ? `<span class="medio-cta">${yt ? "Ver vídeo" : e.cta} <span aria-hidden="true">→</span></span>` : ""}
+    </div>`;
+  const attrs = `class="medio${a.enlace ? " con-enlace" : ""}" data-tipo="${esc(a.tipo)}" data-cat="${esPresentacion(a) ? "presentacion" : "conferencia"}"`;
+  return a.enlace
+    ? `<a ${attrs} href="${esc(safeUrl(a.enlace))}" target="_blank" rel="noopener">${cuerpo}</a>`
+    : `<article ${attrs}>${cuerpo}</article>`;
+}
+
+function filtrosConEfecto(selector, campo) {
+  setTimeout(() => {
+    document.querySelectorAll(".filtro").forEach((b) =>
+      b.addEventListener("click", () => {
+        document.querySelectorAll(".filtro").forEach((x) => x.setAttribute("aria-pressed", x === b));
+        const f = b.dataset.filtro;
+        document.querySelectorAll(selector).forEach((el) => {
+          el.hidden = f !== "todo" && el.dataset[campo] !== f;
+        });
+        document.querySelectorAll(".anio-grupo").forEach((g) => {
+          g.hidden = ![...g.querySelectorAll(".medio")].some((m) => !m.hidden);
+        });
+      })
+    );
+  });
+}
+
+function cabeceraPagina(kicker, titulo, intro, cifras, filtros) {
   return `
-  <article class="medio" data-tipo="${esc(a.tipo)}">
-    ${foto}
-    <div class="medio-meta"><span class="etiqueta">${esc(a.tipo)}</span><time>${fmtFecha(a.fecha)}</time></div>
-    <h3>${titulo}</h3>
-    <p class="medio-fuente">${esc(a.medio)}</p>
-    ${a.descripcion ? `<p>${esc(a.descripcion)}</p>` : ""}
-    ${media}
-  </article>`;
+    <section class="pagina-hero">
+      <div class="wrap">
+        <p class="kicker">${esc(kicker)}</p>
+        <h1>${esc(titulo)}</h1>
+        <div class="lead">${paras(intro)}</div>
+        <div class="cifras">${cifras.map(([n, t]) => `<div class="cifra"><strong>${n}</strong><span>${esc(t)}</span></div>`).join("")}</div>
+        <div class="filtros">${filtros}</div>
+      </div>
+    </section>`;
 }
 
 const ordenar = (lista) =>
@@ -208,7 +274,7 @@ const PAGES = {
     <section class="wrap seccion">
       <div class="seccion-cab">
         <h2>Últimas apariciones</h2>
-        <a href="medios.html">Medios y conferencias →</a>
+        <span class="enlaces-cab"><a href="medios.html">Medios →</a> · <a href="conferencias.html">Conferencias →</a></span>
       </div>
       <div class="medios-lista">${ultimas}</div>
     </section>`;
@@ -282,30 +348,40 @@ const PAGES = {
 
   async medios() {
     const m = await load("medios");
-    const lista = ordenar(m.apariciones);
-    const tipos = [...new Set(lista.map((a) => a.tipo).filter(Boolean))];
-    const filtros = ["Todo", ...tipos]
-      .map((t, i) => `<button class="filtro" data-filtro="${esc(t)}" aria-pressed="${i === 0}">${esc(t)}</button>`)
+    const lista = ordenar(m.apariciones).filter((a) => !esConferencia(a));
+    const orden = ["Televisión", "Radio", "Prensa", "Entrevista", "Podcast"];
+    const tipos = [...new Set(lista.map((a) => a.tipo).filter(Boolean))].sort((a, b) => orden.indexOf(a) - orden.indexOf(b));
+    const cuenta = (t) => lista.filter((a) => a.tipo === t).length;
+    const filtros = [["todo", "Todo"], ...tipos.map((t) => [t, t])]
+      .map(([v, t], i) => `<button class="filtro" data-filtro="${esc(v)}" aria-pressed="${i === 0}">${esc(t)}</button>`)
       .join("");
-    setTimeout(() => {
-      document.querySelectorAll(".filtro").forEach((b) =>
-        b.addEventListener("click", () => {
-          document.querySelectorAll(".filtro").forEach((x) => x.setAttribute("aria-pressed", x === b));
-          const f = b.dataset.filtro;
-          document.querySelectorAll(".medio").forEach((el) => {
-            el.hidden = f !== "Todo" && el.dataset.tipo !== f;
-          });
-        })
-      );
-    });
+    filtrosConEfecto(".medio", "tipo");
+    const cifras = [[lista.length, "apariciones"], ...tipos.slice(0, 3).map((t) => [cuenta(t), t === "Televisión" ? "en televisión" : t === "Radio" ? "en radio" : t === "Prensa" ? "en prensa" : t.toLowerCase()])];
     return `
-    <header class="cabecera wrap">
-      <p class="kicker">Medios</p>
-      <h1>Medios y conferencias</h1>
-      <div class="lead">${paras(m.introduccion)}</div>
-      <div class="filtros">${filtros}</div>
-    </header>
-    <section class="wrap medios-lista">${lista.map(itemMedio).join("")}</section>`;
+    ${cabeceraPagina("Medios", "En los medios", m.introduccion || "Entrevistas y apariciones en televisión, radio, prensa y pódcast.", cifras, filtros)}
+    <section class="wrap medios-lista medios-pagina">${lista.map(itemMedio).join("")}</section>`;
+  },
+
+  async conferencias() {
+    const m = await load("medios");
+    const lista = ordenar(m.apariciones).filter(esConferencia);
+    const pres = lista.filter(esPresentacion).length;
+    const filtros = [["todo", "Todas"], ["presentacion", "Presentaciones del libro"], ["conferencia", "Conferencias y seminarios"]]
+      .map(([v, t], i) => `<button class="filtro" data-filtro="${v}" aria-pressed="${i === 0}">${esc(t)}</button>`)
+      .join("");
+    filtrosConEfecto(".medio", "cat");
+    const anios = [...new Set(lista.map((a) => String(a.fecha || "").slice(0, 4)))];
+    const grupos = anios
+      .map((y) => `
+      <section class="anio-grupo">
+        <h2 class="anio"><span>${esc(y || "Sin fecha")}</span></h2>
+        <div class="medios-lista">${lista.filter((a) => String(a.fecha || "").slice(0, 4) === y).map(itemMedio).join("")}</div>
+      </section>`)
+      .join("");
+    const cifras = [[lista.length, "intervenciones"], [pres, "presentaciones del libro"], [lista.length - pres, "conferencias y seminarios"]];
+    return `
+    ${cabeceraPagina("Conferencias", "Conferencias y presentaciones", m.introduccion_conferencias || "Conferencias, seminarios, debates y presentaciones de «Trumpismo discursivo» en universidades, librerías y centros culturales de España y América Latina.", cifras, filtros)}
+    <div class="wrap conferencias-pagina">${grupos}</div>`;
   },
 
   async "sobre-mi"(sitio) {
