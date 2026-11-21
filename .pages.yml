@@ -1,0 +1,102 @@
+media:
+  input: media
+  output: /media
+
+content:
+  - name: sitio
+    label: Datos generales y Sobre mí
+    type: file
+    path: content/sitio.json
+    format: json
+    fields:
+      - { name: nombre, label: Nombre, type: string }
+      - { name: cargo, label: "Cargo (aparece encima de tu nombre)", type: string }
+      - { name: titular, label: Frase principal de la portada, type: text }
+      - { name: presentacion, label: Presentación (página de inicio), type: text }
+      - { name: foto, label: Foto, type: image }
+      - { name: biografia, label: "Biografía (página Sobre mí). Separa párrafos con una línea en blanco", type: text }
+      - { name: cv, label: CV en PDF, type: file }
+      - { name: email, label: Correo de contacto, type: string }
+      - { name: texto_contacto, label: Texto de la página de contacto, type: text }
+      - name: enlaces
+        label: Perfiles (ORCID, Google Scholar, LinkedIn...)
+        type: object
+        list: true
+        fields:
+          - { name: nombre, label: Nombre, type: string }
+          - { name: url, label: Enlace, type: string }
+
+  - name: investigacion
+    label: Investigación
+    type: file
+    path: content/investigacion.json
+    format: json
+    fields:
+      - { name: introduccion, label: Introducción, type: text }
+      - name: lineas
+        label: Líneas de investigación
+        type: object
+        list: true
+        fields:
+          - { name: titulo, label: Título, type: string }
+          - { name: resumen, label: Resumen corto (tarjeta de inicio), type: text }
+          - { name: descripcion, label: "Descripción completa. Separa párrafos con una línea en blanco", type: text }
+          - name: publicaciones
+            label: Publicaciones relacionadas
+            type: object
+            list: true
+            fields:
+              - { name: referencia, label: Referencia, type: text }
+              - { name: enlace, label: Enlace o DOI, type: string }
+
+  - name: libro
+    label: El libro
+    type: file
+    path: content/libro.json
+    format: json
+    fields:
+      - { name: titulo, label: Título, type: string }
+      - { name: subtitulo, label: Subtítulo, type: string }
+      - { name: editorial, label: Editorial, type: string }
+      - { name: anio, label: Año, type: string }
+      - { name: portada, label: Portada, type: image }
+      - { name: gancho, label: Frase gancho, type: text }
+      - { name: sinopsis, label: Sinopsis, type: text }
+      - { name: fragmento, label: Fragmento en PDF (opcional), type: file }
+      - name: compra
+        label: Dónde comprarlo
+        type: object
+        list: true
+        fields:
+          - { name: tienda, label: Tienda, type: string }
+          - { name: url, label: Enlace, type: string }
+      - name: resenas
+        label: Reseñas y citas
+        type: object
+        list: true
+        fields:
+          - { name: cita, label: Cita, type: text }
+          - { name: fuente, label: Fuente, type: string }
+
+  - name: medios
+    label: Medios y conferencias
+    type: file
+    path: content/medios.json
+    format: json
+    fields:
+      - { name: introduccion, label: Introducción, type: text }
+      - name: apariciones
+        label: Apariciones
+        type: object
+        list: true
+        fields:
+          - name: tipo
+            label: Tipo
+            type: select
+            options:
+              values: [Entrevista, Prensa, Conferencia, Radio, Televisión, Podcast]
+          - { name: titulo, label: Título, type: string }
+          - { name: medio, label: "Medio, congreso o institución", type: string }
+          - { name: fecha, label: Fecha, type: date }
+          - { name: enlace, label: "Enlace (si es de YouTube, el vídeo se verá en la web)", type: string }
+          - { name: descripcion, label: Descripción breve (opcional), type: text }
