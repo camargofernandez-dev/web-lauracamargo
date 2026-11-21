@@ -326,13 +326,50 @@ const PAGES = {
       .filter((e) => e.url)
       .map((e) => `<li><a href="${esc(safeUrl(e.url))}" target="_blank" rel="noopener">${esc(e.nombre)} ↗</a></li>`)
       .join("");
+    const motivos = ["Entrevista o medios de comunicación", "Conferencia, charla o presentación", "Investigación o colaboración académica", "El libro «Trumpismo discursivo»", "Otro motivo"];
     return `
-    <section class="wrap seccion estrecha">
-      <p class="kicker">Contacto</p>
-      <h1>Hablemos</h1>
-      ${paras(sitio.texto_contacto)}
-      <p class="email-grande"><a href="mailto:${esc(sitio.email)}">${esc(sitio.email)}</a></p>
-      ${enlaces ? `<h2>También en</h2><ul class="enlaces">${enlaces}</ul>` : ""}
+    <section class="contacto-hero">
+      <div class="wrap contacto-grid">
+        <div class="contacto-info">
+          <p class="kicker">Contacto</p>
+          <h1>Hablemos</h1>
+          ${paras(sitio.texto_contacto) || "<p>Para entrevistas, conferencias, presentaciones del libro o colaboraciones de investigación, escríbeme a través del formulario o directamente por correo.</p>"}
+          <div class="contacto-dato">
+            <span class="contacto-icono" aria-hidden="true">✉</span>
+            <div><small>Correo</small><a href="mailto:${esc(sitio.email)}">${esc(sitio.email)}</a></div>
+          </div>
+          <div class="contacto-dato">
+            <span class="contacto-icono" aria-hidden="true">⌂</span>
+            <div><small>Universidad</small><span>Universitat de les Illes Balears · Palma</span></div>
+          </div>
+          ${enlaces ? `<h2>También en</h2><ul class="enlaces">${enlaces}</ul>` : ""}
+        </div>
+        <form class="form-contacto" id="form-contacto" novalidate>
+          <h2>Envíame un mensaje</h2>
+          <div class="campo">
+            <label for="fc-nombre">Nombre</label>
+            <input id="fc-nombre" name="nombre" type="text" autocomplete="name" required placeholder="Tu nombre">
+          </div>
+          <div class="campo">
+            <label for="fc-email">Correo electrónico</label>
+            <input id="fc-email" name="email" type="email" autocomplete="email" required placeholder="tu@correo.com">
+          </div>
+          <div class="campo">
+            <label>Motivo</label>
+            <div class="motivos">
+              ${motivos.map((m, i) => `<label class="chip"><input type="radio" name="motivo" value="${esc(m)}" ${i === 0 ? "required" : ""}><span>${esc(m)}</span></label>`).join("")}
+            </div>
+          </div>
+          <div class="campo">
+            <label for="fc-mensaje">Mensaje</label>
+            <textarea id="fc-mensaje" name="mensaje" rows="5" required placeholder="Cuéntame brevemente…"></textarea>
+          </div>
+          <input type="text" name="_honey" class="oculto" tabindex="-1" autocomplete="off">
+          <label class="acepto"><input type="checkbox" name="privacidad" required><span>He leído la <a href="aviso-legal.html">política de privacidad</a> y acepto que se usen mis datos para responderme.</span></label>
+          <button class="btn" type="submit">Enviar mensaje</button>
+          <p class="form-estado" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </section>`;
   },
 
@@ -343,7 +380,7 @@ const PAGES = {
       <h2>Titular</h2>
       <p>Esta web es un sitio personal e informativo cuya titular es ${esc(sitio.nombre)}. Contacto: <a href="mailto:${esc(sitio.email)}">${esc(sitio.email)}</a>.</p>
       <h2>Datos personales</h2>
-      <p>Esta web no utiliza formularios ni recoge datos personales. Si escribes al correo de contacto, tus datos se usarán solo para responderte y no se cederán a terceros. Puedes pedir que se borren escribiendo a ese mismo correo.</p>
+      <p>Los datos que envíes por el formulario de contacto o por correo (nombre, correo electrónico y mensaje) se usarán solo para responderte y no se cederán a terceros con otros fines. El formulario se entrega a través del servicio FormSubmit, que reenvía el mensaje a la dirección de contacto. Puedes pedir que se borren tus datos escribiendo a ese mismo correo.</p>
       <h2>Cookies</h2>
       <p>Esta web no utiliza cookies propias de seguimiento ni de publicidad. Los vídeos insertados se cargan en el modo de privacidad mejorada de YouTube.</p>
       <h2>Enlaces externos</h2>
@@ -361,8 +398,81 @@ document.head.insertAdjacentHTML(
   blockquote p a{color:var(--libro);text-decoration:none}
   blockquote p a:hover{text-decoration:underline}
   .retrato{box-shadow:0 18px 40px rgba(29,36,51,.12)}
+  .contacto-hero{background:linear-gradient(180deg,#f1ebe1 0%,var(--papel) 100%);padding:4.5rem 0 5rem}
+  .contacto-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:3.5rem;align-items:start}
+  .contacto-info h1{margin-top:.2rem}
+  .contacto-dato{display:flex;gap:.9rem;align-items:center;margin:1.1rem 0}
+  .contacto-dato small{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.6}
+  .contacto-dato a{color:var(--acento);font-weight:600;text-decoration:none}
+  .contacto-icono{width:2.6rem;height:2.6rem;border-radius:50%;background:var(--acento);color:#fff;display:grid;place-items:center;font-size:1.1rem;flex:none}
+  .form-contacto{background:#fff;border-radius:18px;padding:2.2rem;box-shadow:0 24px 60px rgba(29,36,51,.10);border-top:4px solid var(--libro)}
+  .form-contacto h2{margin:0 0 1.4rem;font-size:1.45rem}
+  .campo{margin-bottom:1.15rem}
+  .campo>label{display:block;font-size:.82rem;font-weight:600;margin-bottom:.4rem}
+  .campo input,.campo textarea{width:100%;font:inherit;padding:.8rem .95rem;border:1px solid #ddd5c8;border-radius:10px;background:var(--papel);transition:border-color .2s,box-shadow .2s;box-sizing:border-box}
+  .campo input:focus,.campo textarea:focus{outline:none;border-color:var(--acento);box-shadow:0 0 0 3px rgba(31,58,95,.15);background:#fff}
+  .campo textarea{resize:vertical;min-height:7rem}
+  .motivos{display:flex;flex-wrap:wrap;gap:.5rem}
+  .chip input{position:absolute;opacity:0;pointer-events:none}
+  .chip span{display:inline-block;padding:.5rem .9rem;border:1px solid #ddd5c8;border-radius:999px;font-size:.85rem;cursor:pointer;transition:all .15s;background:var(--papel)}
+  .chip:hover span{border-color:var(--acento)}
+  .chip input:checked+span{background:var(--acento);border-color:var(--acento);color:#fff}
+  .chip input:focus-visible+span{box-shadow:0 0 0 3px rgba(31,58,95,.25)}
+  .acepto{display:flex;gap:.55rem;align-items:flex-start;font-size:.82rem;line-height:1.45;margin:.4rem 0 1.3rem}
+  .acepto input{margin-top:.2rem}
+  .form-contacto .btn{width:100%;text-align:center;cursor:pointer;font-family:inherit;font-weight:600}
+  .form-contacto .btn[disabled]{opacity:.6;cursor:wait}
+  .form-estado{margin:.9rem 0 0;font-size:.9rem;min-height:1.2em}
+  .form-estado.ok{color:#2c6e49}.form-estado.error{color:var(--libro)}
+  .form-ok{text-align:center;padding:2.5rem 1rem}
+  .form-ok .check{width:3.5rem;height:3.5rem;border-radius:50%;background:#2c6e49;color:#fff;display:grid;place-items:center;font-size:1.6rem;margin:0 auto 1rem}
+  .oculto{position:absolute;left:-9999px}
+  @media (max-width:820px){.contacto-grid{grid-template-columns:1fr;gap:2.2rem}.contacto-hero{padding:2.5rem 0 3rem}.form-contacto{padding:1.5rem}}
   </style>`
 );
+
+/* ---------- Formulario de contacto ---------- */
+
+function activarFormulario(sitio) {
+  const f = document.getElementById("form-contacto");
+  if (!f) return;
+  const estado = f.querySelector(".form-estado");
+  f.addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    estado.className = "form-estado";
+    const d = Object.fromEntries(new FormData(f));
+    if (!d.nombre?.trim() || !d.email?.trim() || !d.mensaje?.trim()) return aviso("Rellena tu nombre, tu correo y el mensaje.");
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)) return aviso("Revisa la dirección de correo.");
+    if (!d.motivo) return aviso("Elige un motivo.");
+    if (!d.privacidad) return aviso("Debes aceptar la política de privacidad.");
+    if (d._honey) return;
+    const boton = f.querySelector("button");
+    boton.disabled = true; boton.textContent = "Enviando…";
+    const destino = sitio.formulario_destino || sitio.email;
+    try {
+      const r = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(destino)}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `Web · ${d.motivo} · ${d.nombre}`,
+          _template: "table", _captcha: "false", _replyto: d.email,
+          Nombre: d.nombre, Correo: d.email, Motivo: d.motivo, Mensaje: d.mensaje,
+        }),
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || String(j.success) !== "true") throw new Error(j.message || r.status);
+      f.innerHTML = `<div class="form-ok"><div class="check">✓</div><h2>¡Mensaje enviado!</h2><p>Gracias, ${esc(d.nombre.split(" ")[0])}. Te responderé lo antes posible.</p></div>`;
+    } catch (e) {
+      console.error(e);
+      boton.disabled = false; boton.textContent = "Enviar mensaje";
+      const asunto = encodeURIComponent(`Web · ${d.motivo} · ${d.nombre}`);
+      const cuerpo = encodeURIComponent(`${d.mensaje}\n\n— ${d.nombre} (${d.email})`);
+      estado.className = "form-estado error";
+      estado.innerHTML = `No se ha podido enviar ahora mismo. <a href="mailto:${esc(sitio.email)}?subject=${asunto}&body=${cuerpo}">Envíalo por correo</a> con un clic.`;
+    }
+  });
+  function aviso(t) { estado.className = "form-estado error"; estado.textContent = t; }
+}
 
 /* ---------- Arranque ---------- */
 
@@ -380,6 +490,8 @@ document.head.insertAdjacentHTML(
       const open = document.body.classList.toggle("menu-abierto");
       btn.setAttribute("aria-expanded", open);
     });
+
+    if (page === "contacto") activarFormulario(sitio);
 
     if (location.hash) document.querySelector(location.hash)?.scrollIntoView();
   } catch (e) {
