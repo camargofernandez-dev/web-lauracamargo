@@ -34,7 +34,7 @@ const safeUrl = (u) => {
 const img = (src) => {
   const u = String(src || "").trim();
   if (!u) return "";
-  return u.startsWith("http") || u.startsWith("/") ? u : "/" + u;
+  return u.startsWith("http") ? u : u.replace(/^\/+/, "");
 };
 
 const fmtFecha = (f) => {
@@ -61,7 +61,7 @@ const youtubeId = (u) => {
 };
 
 async function load(name) {
-  const r = await fetch(`/content/${name}.json`, { cache: "no-cache" });
+  const r = await fetch(`content/${name}.json`, { cache: "no-cache" });
   if (!r.ok) throw new Error("No se pudo cargar " + name);
   return r.json();
 }
@@ -69,11 +69,11 @@ async function load(name) {
 function header(sitio, page) {
   const links = NAV.map(
     ([href, label, key]) =>
-      `<a href="/${href === "index.html" ? "" : href}" ${key === page ? 'aria-current="page"' : ""}>${label}</a>`
+      `<a href="${href === "index.html" ? "./" : href}" ${key === page ? 'aria-current="page"' : ""}>${label}</a>`
   ).join("");
   return `
   <div class="wrap header-inner">
-    <a class="brand" href="/">${esc(sitio.nombre)}</a>
+    <a class="brand" href="./">${esc(sitio.nombre)}</a>
     <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
@@ -94,7 +94,7 @@ function footer(sitio) {
     </div>
     <div class="footer-links">${enlaces}</div>
     <div class="legal">
-      <a href="/aviso-legal.html">Aviso legal y privacidad</a>
+      <a href="aviso-legal.html">Aviso legal y privacidad</a>
       <span>© ${new Date().getFullYear()} ${esc(sitio.nombre)}</span>
     </div>
   </div>`;
@@ -152,7 +152,7 @@ const PAGES = {
     const tarjetas = (inv.lineas || [])
       .map(
         (l, i) => `
-        <a class="tarjeta" href="/investigacion.html#${slug(l.titulo, i)}">
+        <a class="tarjeta" href="investigacion.html#${slug(l.titulo, i)}">
           <span class="num">${String(i + 1).padStart(2, "0")}</span>
           <h3>${esc(l.titulo)}</h3>
           <p>${esc(l.resumen)}</p>
@@ -169,8 +169,8 @@ const PAGES = {
           <h1>${esc(sitio.nombre)}</h1>
           <p class="lead">${esc(sitio.titular)}</p>
           <div class="acciones">
-            <a class="btn" href="/investigacion.html">Ver mi investigación</a>
-            <a class="btn btn-ghost" href="/contacto.html">Contacto</a>
+            <a class="btn" href="investigacion.html">Ver mi investigación</a>
+            <a class="btn btn-ghost" href="contacto.html">Contacto</a>
           </div>
         </div>
         ${retrato(sitio, "hero-retrato")}
@@ -186,7 +186,7 @@ const PAGES = {
           ${libro.subtitulo ? `<p class="subtitulo">${esc(libro.subtitulo)}</p>` : ""}
           <p class="gancho">${esc(libro.gancho)}</p>
           <div class="acciones">
-            <a class="btn btn-claro" href="/libro.html">Descubre el libro</a>
+            <a class="btn btn-claro" href="libro.html">Descubre el libro</a>
             ${(() => {
               const c = (libro.compra || []).find((x) => x.url);
               return c ? `<a class="btn btn-ghost-claro" href="${esc(safeUrl(c.url))}" target="_blank" rel="noopener">Comprar</a>` : "";
@@ -200,7 +200,7 @@ const PAGES = {
       <div class="presentacion">${paras(sitio.presentacion)}</div>
       <div class="seccion-cab">
         <h2>Líneas de investigación</h2>
-        <a href="/investigacion.html">Ver todas →</a>
+        <a href="investigacion.html">Ver todas →</a>
       </div>
       <div class="tarjetas">${tarjetas}</div>
     </section>
@@ -208,7 +208,7 @@ const PAGES = {
     <section class="wrap seccion">
       <div class="seccion-cab">
         <h2>Últimas apariciones</h2>
-        <a href="/medios.html">Medios y conferencias →</a>
+        <a href="medios.html">Medios y conferencias →</a>
       </div>
       <div class="medios-lista">${ultimas}</div>
     </section>`;
