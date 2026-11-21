@@ -1,0 +1,29 @@
+{
+  "introduccion": "Entrevistas, apariciones en prensa y conferencias.",
+  "apariciones": [
+    {
+      "tipo": "Entrevista",
+      "titulo": "Título de la entrevista",
+      "medio": "Nombre del medio",
+      "fecha": "2026-10-15",
+      "enlace": "",
+      "descripcion": "Breve descripción opcional."
+    },
+    {
+      "tipo": "Prensa",
+      "titulo": "Título del artículo o la noticia",
+      "medio": "Nombre del periódico",
+      "fecha": "2026-09-01",
+      "enlace": "",
+      "descripcion": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Título de la conferencia",
+      "medio": "Congreso o institución, ciudad",
+      "fecha": "2026-05-20",
+      "enlace": "",
+      "descripcion": ""
+    }
+  ]
+}
