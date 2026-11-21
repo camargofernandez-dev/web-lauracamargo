@@ -137,3 +137,54 @@ cite { color: var(--suave); font-style: normal; font-size: 0.9rem; }
   .footer-links { justify-content: flex-start; }
   .medios-lista { grid-template-columns: 1fr; }
 }
+
+/* ---------- Medios y conferencias (v1.1) ---------- */
+.pagina-hero { background: linear-gradient(180deg, #f1ebe1 0%, var(--papel) 100%); padding: 3.8rem 0 2.2rem; }
+.pagina-hero .lead { max-width: 46rem; }
+.pagina-hero .lead p { margin: 0.3rem 0; }
+.cifras { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 1.6rem 0 0.4rem; }
+.cifra { background: #fff; border-radius: 14px; padding: 0.8rem 1.2rem; box-shadow: 0 8px 24px rgba(29, 36, 51, 0.06); display: flex; align-items: baseline; gap: 0.5rem; }
+.cifra strong { font-family: var(--serif); font-size: 1.7rem; color: var(--acento); line-height: 1; }
+.cifra span { font-size: 0.88rem; color: var(--suave); }
+.pagina-hero .filtros { margin-top: 1.4rem; }
+.filtro { transition: all 0.15s; background: var(--papel); }
+.filtro:hover { border-color: var(--acento); }
+.filtro[aria-pressed="true"] { background: var(--acento); border-color: var(--acento); }
+
+.medios-lista { grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.5rem; }
+.medios-pagina { margin-top: 2rem; }
+.medio { padding: 0; display: flex; flex-direction: column; overflow: hidden; border: 0; border-radius: 16px; background: #fff; box-shadow: 0 10px 30px rgba(29, 36, 51, 0.07); color: var(--tinta); text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.medio[hidden] { display: none; }
+a.medio:hover { transform: translateY(-4px); box-shadow: 0 20px 44px rgba(29, 36, 51, 0.13); }
+.cover { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #e9e3d8; }
+.cover-foto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+a.medio:hover .cover-foto img { transform: scale(1.04); }
+.cover-play { position: absolute; inset: 0; margin: auto; width: 3.6rem; height: 3.6rem; border-radius: 50%; background: rgba(255, 255, 255, 0.92); color: var(--libro); display: grid; place-items: center; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); }
+.cover-play svg { width: 1.6rem; height: 1.6rem; margin-left: 0.2rem; }
+.cover-gen { background: radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.12), transparent 45%), linear-gradient(135deg, var(--c1), var(--c2)); color: #fff; display: flex; flex-direction: column; justify-content: space-between; padding: 1.2rem 1.3rem; }
+.cover-gen::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px); background-size: 14px 14px; pointer-events: none; }
+.cover-fondo { position: absolute; right: -1.2rem; bottom: -1.6rem; width: 9.5rem; height: 9.5rem; opacity: 0.13; stroke-width: 1.1; }
+.cover-icono { width: 2.6rem; height: 2.6rem; border-radius: 50%; background: rgba(255, 255, 255, 0.16); display: grid; place-items: center; position: relative; z-index: 1; }
+.cover-icono svg { width: 1.3rem; height: 1.3rem; }
+.cover-medio { font-family: var(--serif); font-size: 1.3rem; line-height: 1.2; font-weight: 600; max-width: 85%; position: relative; z-index: 1; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.medio-cuerpo { padding: 1.2rem 1.35rem 1.35rem; display: flex; flex-direction: column; flex: 1; }
+.medio-cuerpo h3 { font-size: 1.12rem; line-height: 1.3; margin: 0.65rem 0 0.35rem; }
+.medio .etiqueta { background: color-mix(in srgb, var(--c1) 12%, #fff); color: var(--c1); }
+.medio-meta time { font-size: 0.82rem; }
+.medio-fuente { font-size: 0.9rem; }
+.medio-desc { color: var(--suave); font-size: 0.92rem; margin: 0.4rem 0 0; }
+.medio-cta { margin-top: auto; padding-top: 0.9rem; font-weight: 600; font-size: 0.9rem; color: var(--acento); }
+a.medio:hover .medio-cta { text-decoration: underline; }
+
+.conferencias-pagina { margin: 1rem auto 4rem; }
+.anio-grupo[hidden] { display: none; }
+.anio { display: flex; align-items: center; gap: 1rem; margin: 2.4rem 0 1.2rem; font-size: 1.9rem; color: var(--acento); }
+.anio::after { content: ""; flex: 1; height: 1px; background: var(--linea); }
+.anio-grupo .medios-lista { margin: 0; }
+@media (max-width: 700px) {
+  .pagina-hero { padding: 2.4rem 0 1.6rem; }
+  .cifra { padding: 0.6rem 0.9rem; }
+  .cifra strong { font-size: 1.4rem; }
+}
+.medio .etiqueta { white-space: nowrap; }
+@media (max-width: 700px) { .cifras { gap: 0.5rem; } .cifra { padding: 0.45rem 0.8rem; } .cifra strong { font-size: 1.2rem; } .cifra span { font-size: 0.8rem; } }
