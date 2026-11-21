@@ -40,15 +40,38 @@ content:
         list: true
         fields:
           - { name: titulo, label: Título, type: string }
-          - { name: resumen, label: Resumen corto (tarjeta de inicio), type: text }
+          - { name: resumen, label: Resumen corto, type: text }
           - { name: descripcion, label: "Descripción completa. Separa párrafos con una línea en blanco", type: text }
-          - name: publicaciones
-            label: Publicaciones relacionadas
-            type: object
-            list: true
-            fields:
-              - { name: referencia, label: Referencia, type: text }
-              - { name: enlace, label: Enlace o DOI, type: string }
+      - name: publicaciones
+        label: Publicaciones
+        type: object
+        list: true
+        fields:
+          - { name: anio, label: Año, type: string }
+          - { name: autores, label: "Autores (p. ej. Camargo, L. y Méndez, B.)", type: string }
+          - { name: titulo, label: Título, type: text }
+          - { name: fuente, label: "Revista o libro, volumen y páginas", type: text }
+          - name: tipo
+            label: Tipo
+            type: select
+            options:
+              values: [Libro, Artículo, Capítulo de libro]
+          - name: linea
+            label: Línea de investigación
+            type: select
+            options:
+              values: ["Discurso de la extrema derecha y trumpismo discursivo", "Sociolingüística del español en Mallorca", "Pragmática y análisis de la conversación", "Rap y discurso de los jóvenes", "Competencia pragmática y TEA"]
+          - { name: enlace, label: Enlace o DOI (opcional), type: string }
+      - name: proyectos
+        label: Proyectos financiados
+        type: object
+        list: true
+        fields:
+          - { name: periodo, label: "Periodo (p. ej. 2024-2028)", type: string }
+          - { name: titulo, label: Título, type: text }
+          - { name: investigadores, label: Investigación principal, type: string }
+          - { name: financiacion, label: Financiación, type: string }
+          - { name: codigo, label: Código, type: string }
 
   - name: libro
     label: El libro
