@@ -107,6 +107,124 @@ function retrato(sitio, cls = "") {
     : `<div class="retrato retrato-vacio ${cls}" aria-hidden="true">${esc(iniciales(sitio.nombre))}</div>`;
 }
 
+/* ---------- Tablón social (Sobre mí) ----------
+   Los post-its se editan en content/tablon.json.
+   Cada aviso: tipo, titulo, fecha (AAAA-MM-DD), hora, lugar, enlace, color, texto (opcional), fecha_fin (opcional).
+   Colores: amarillo, rosa, verde, azul, naranja, blanco. */
+
+const COLORES_POSTIT = ["amarillo", "verde", "rosa", "azul", "naranja", "blanco"];
+const GIROS_POSTIT = [-2.4, 1.8, 1.1, -1.9, -0.8, 2.3];
+const CHINCHETAS = ["rojo", "verde", "negro", "blanco"]; // colores de la bandera palestina
+
+const hoyISO = () => new Date().toLocaleDateString("sv-SE"); // AAAA-MM-DD en hora local
+
+function fechaPostit(a) {
+  const f = String(a.fecha || "").slice(0, 10);
+  if (!f) return "";
+  const d = new Date(f + "T12:00:00");
+  const txt = isNaN(d) ? f : d.toLocaleDateString("es-ES", { weekday: "short", day: "numeric", month: "short" }).replace(",", "");
+  return esc(txt) + (a.hora ? " · " + esc(a.hora) : "");
+}
+
+function postit(a, i) {
+  const color = COLORES_POSTIT.includes(a.color) ? a.color : COLORES_POSTIT[i % COLORES_POSTIT.length];
+  const url = a.enlace ? safeUrl(a.enlace) : "";
+  const tag = url ? "a" : "div";
+  const attrs = url ? ` href="${esc(url)}" target="_blank" rel="noopener"` : "";
+  return `
+        <li style="--giro:${GIROS_POSTIT[i % GIROS_POSTIT.length]}deg">
+          <${tag} class="postit postit-${color}"${attrs}>
+            <span class="chincheta chincheta-${CHINCHETAS[i % CHINCHETAS.length]}" aria-hidden="true"></span>
+            ${a.tipo ? `<span class="postit-tipo">${esc(a.tipo)}</span>` : ""}
+            <strong class="postit-titulo">${esc(a.titulo)}</strong>
+            ${a.fecha ? `<span class="postit-fecha">${fechaPostit(a)}</span>` : ""}
+            ${a.lugar ? `<span class="postit-lugar">${esc(a.lugar)}</span>` : ""}
+            ${a.texto ? `<span class="postit-texto">${esc(a.texto)}</span>` : ""}
+            ${url ? `<span class="postit-mas">Más info ↗</span>` : ""}
+          </${tag}>
+        </li>`;
+}
+
+function kufiya() {
+  // Tela de kufiya (red de pesca, hojas de olivo, rutas comerciales) rematada en flecos.
+  const tinta = "#1b1b1b", hilo = "#cfc6b3";
+  let borlas = "";
+  for (let i = 0; i < 15; i++) {
+    const x = 10 + i * 20;
+    const largos = [42, 48, 53, 56, 52, 47, 41].map((l, k) => l + ((i * 7 + k * 5) % 9) - 4);
+    const arriba = [-4, -1.5, 1.5, 4]
+      .map((dx, k) => `<path d="M${x + dx} 88 L${x} 102" stroke="${k % 2 ? hilo : tinta}"/>`).join("");
+    const abajo = [-6, -4, -2, 0, 2, 4, 6]
+      .map((dx, k) => {
+        const y = 107 + largos[k];
+        return `<path d="M${x} 106 Q${x + dx * 0.4} ${107 + largos[k] / 2} ${x + dx} ${y}" stroke="${(k + i) % 2 ? hilo : tinta}"/>`;
+      }).join("");
+    borlas += `<g class="borla" style="--retraso:${((i * 0.37) % 1.6).toFixed(2)}s">${arriba}${abajo}<ellipse cx="${x}" cy="104" rx="3.3" ry="4" fill="${tinta}"/></g>`;
+  }
+  return `
+      <svg class="kufiya" viewBox="0 0 300 168" role="img" aria-label="Flecos de una kufiya palestina">
+        <defs>
+          <pattern id="kf-red" width="14" height="14" patternUnits="userSpaceOnUse">
+            <path d="M0 7 L7 0 L14 7 L7 14 Z" fill="none" stroke="${tinta}" stroke-width="1.7" stroke-dasharray="2.6 1.1"/>
+            <circle cx="7" cy="7" r="1" fill="${tinta}"/>
+          </pattern>
+          <pattern id="kf-olivo" width="20" height="14" patternUnits="userSpaceOnUse">
+            <path d="M0 7H20" stroke="${tinta}" stroke-width="1"/>
+            <path d="M1.5 7 Q5.5 1.2 10 1.8 Q7.2 6 1.5 7Z" fill="${tinta}"/>
+            <path d="M11 7 Q15 12.8 19.5 12.2 Q16.7 8 11 7Z" fill="${tinta}"/>
+          </pattern>
+          <pattern id="kf-ruta" width="10" height="8" patternUnits="userSpaceOnUse">
+            <rect width="10" height="8" fill="${tinta}"/>
+            <polyline points="0,6 5,2 10,6" fill="none" stroke="#f3efe6" stroke-width="1.3"/>
+          </pattern>
+          <linearGradient id="kf-pliegue" x1="0" x2="1">
+            <stop offset="0" stop-color="#000" stop-opacity=".10"/>
+            <stop offset=".25" stop-color="#fff" stop-opacity=".0"/>
+            <stop offset=".5" stop-color="#000" stop-opacity=".06"/>
+            <stop offset=".75" stop-color="#fff" stop-opacity=".0"/>
+            <stop offset="1" stop-color="#000" stop-opacity=".10"/>
+          </linearGradient>
+        </defs>
+        <rect width="300" height="88" fill="#f3efe6"/>
+        <rect y="0" width="300" height="38" fill="url(#kf-red)"/>
+        <rect y="41" width="300" height="3" fill="${tinta}"/>
+        <rect y="47" width="300" height="14" fill="url(#kf-olivo)"/>
+        <rect y="64" width="300" height="2" fill="${tinta}"/>
+        <rect y="69" width="300" height="8" fill="url(#kf-ruta)"/>
+        <rect y="80" width="300" height="2" fill="${tinta}"/>
+        <rect y="85" width="300" height="3" fill="#ddd5c4"/>
+        <rect width="300" height="88" fill="url(#kf-pliegue)"/>
+        <g fill="none" stroke-width="1.35" stroke-linecap="round">${borlas}</g>
+      </svg>`;
+}
+
+function tablon(t) {
+  const hoy = hoyISO();
+  let avisos = (t.avisos || []).filter((a) => a && a.titulo);
+  if (t.ocultar_pasados !== false) {
+    avisos = avisos.filter((a) => {
+      const fin = String(a.fecha_fin || a.fecha || "").slice(0, 10);
+      return !fin || fin >= hoy;
+    });
+  }
+  avisos.sort((a, b) => String(a.fecha || "9999").localeCompare(String(b.fecha || "9999")));
+  if (t.maximo) avisos = avisos.slice(0, t.maximo);
+  const lista = avisos.length
+    ? avisos.map(postit).join("")
+    : postit({ titulo: t.texto_vacio || "Pronto, nuevas convocatorias", color: "amarillo" }, 0);
+  return `
+    <section class="tablon" aria-labelledby="tablon-titulo">
+      <div class="tablon-marco">
+        <div class="tablon-corcho">
+          <h2 class="tablon-titulo" id="tablon-titulo">${esc(t.titulo || "Tablón social")}${t.subtitulo ? `<small>${esc(t.subtitulo)}</small>` : ""}</h2>
+          <ul class="tablon-lista${avisos.length ? "" : " tablon-vacio"}">${lista}
+          </ul>
+        </div>
+      </div>
+      ${kufiya()}
+    </section>`;
+}
+
 function portada(libro, cls = "") {
   return libro.portada
     ? `<img class="portada ${cls}" src="${esc(img(libro.portada))}" alt="Portada de ${esc(libro.titulo)}">`
@@ -503,9 +621,14 @@ const PAGES = {
   },
 
   async "sobre-mi"(sitio) {
+    let datosTablon = null;
+    try { datosTablon = await load("tablon"); } catch (e) { /* sin tablón: la página se muestra igual */ }
     return `
     <section class="wrap seccion sobre">
-      ${retrato({ ...sitio, foto: sitio.foto_secundaria || sitio.foto }, "sobre-retrato")}
+      <aside class="sobre-lateral">
+        ${retrato({ ...sitio, foto: sitio.foto_secundaria || sitio.foto }, "sobre-retrato")}
+        ${datosTablon ? tablon(datosTablon) : ""}
+      </aside>
       <div>
         <p class="kicker">Sobre mí</p>
         <h1>${esc(sitio.nombre)}</h1>
