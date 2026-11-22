@@ -1,6 +1,6 @@
 {
-  "introduccion": "Entrevistas y apariciones en televisión, radio, prensa y pódcast sobre el discurso de la extrema derecha, el trumpismo y la comunicación política.",
-  "introduccion_conferencias": "Conferencias, seminarios, debates y presentaciones de «Trumpismo discursivo» en universidades, librerías y centros culturales de España y América Latina.",
+  "introduccion": "Una selección de mis participaciones más destacadas en televisión, radio, prensa y pódcast sobre el discurso de la extrema derecha, el trumpismo y la comunicación política.",
+  "introduccion_conferencias": "Una selección de mis conferencias, mesas redondas, seminarios y presentaciones de «Trumpismo discursivo» más destacadas en universidades, librerías y centros culturales de España y América Latina.",
   "apariciones": [
     {
       "tipo": "Prensa",
@@ -450,6 +450,15 @@
       "fecha": "2020-03-11",
       "enlace": "",
       "descripcion": "",
+      "imagen": ""
+    },
+    {
+      "tipo": "Conferencia",
+      "titulo": "Mesa redonda «Hechiceros del capital»",
+      "medio": "Círculo de Bellas Artes, Madrid",
+      "fecha": "2026-06-24",
+      "enlace": "https://www.circulobellasartes.com/mediateca/hechiceros-del-capital-laura-camargo-carlos-fernandez-liria-iago-moreno/",
+      "descripcion": "Con Carlos Fernández Liria e Iago Moreno, moderada por Ignacio Salcedo. Sobre la alianza entre las grandes tecnológicas y la extrema derecha.",
       "imagen": ""
     }
   ]
