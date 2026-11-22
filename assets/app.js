@@ -736,9 +736,9 @@ async function abrirBKC() {
     <div class="bkc-caja">
       <button class="bkc-cerrar" aria-label="Cerrar">×</button>
       <div class="bkc-izq${b.foto ? " con-foto" : ""}">
-        ${vinilo(b.portada ? img(b.portada) : "", b.disco)}
         ${b.foto ? `<figure class="bkc-foto"><img src="${esc(img(b.foto))}" alt="${esc(b.foto_texto || "")}" style="object-position:${esc(b.foto_encuadre || "50% 50%")}"></figure>` : ""}
         <p class="bkc-pista">Has encontrado la cara B</p>
+        ${vinilo(b.portada ? img(b.portada) : "", b.disco)}
       </div>
       <div class="bkc-der">
         <p class="bkc-kicker">Cara B</p>
