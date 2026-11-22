@@ -290,3 +290,13 @@ body.bkc-abierto { overflow: hidden; }
   .bkc-izq { flex-direction: row; } .casete { width: 55%; } .bkc-pista { font-size: .9rem; }
 }
 @media (prefers-reduced-motion: reduce) { .casete .bobina, .bkc-trigger:hover svg circle { animation: none; } }
+
+.bkc-foto { margin: 0; width: 100%; aspect-ratio: 508 / 344; overflow: hidden; border-radius: 3px; transform: rotate(3deg); box-shadow: 0 18px 36px rgba(0, 0, 0, .55); position: relative; z-index: 1; }
+.bkc-foto img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.12) brightness(1.04); }
+.bkc-izq.con-foto .casete { width: 78%; margin-top: -2.2rem; transform: rotate(-8deg); position: relative; z-index: 2; }
+@media (max-width: 760px) {
+  .bkc-izq.con-foto { flex-direction: column; }
+  .bkc-izq.con-foto .bkc-foto { width: 88%; }
+  .bkc-izq.con-foto .casete { width: 46%; margin-top: -1.6rem; align-self: flex-end; }
+  .bkc-izq.con-foto .bkc-pista { display: none; }
+}
