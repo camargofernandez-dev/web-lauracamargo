@@ -675,22 +675,21 @@ function activarFormulario(sitio) {
 /* ---------- Easter egg: BKC ---------- */
 
 const vinilo = (portada, disco) => `
-<div class="${portada ? "lp" : "lp sin-funda"}">
-${portada ? `<img class="funda" src="${esc(portada)}" alt="Portada de «${esc(disco || "")}»">` : ""}
+<div class="lp sin-funda">
 <div class="tocadiscos">
   <svg class="vinilo" viewBox="0 0 200 200" role="button" tabindex="0" aria-label="Reproducir o pausar">
-    <defs><clipPath id="bkc-etiqueta"><circle cx="100" cy="100" r="36"/></clipPath></defs>
+    <defs><clipPath id="bkc-etiqueta"><circle cx="100" cy="100" r="52"/></clipPath></defs>
     <g class="disco">
       <circle cx="100" cy="100" r="98" fill="#111114"/>
       <g fill="none" stroke="#2c2c33" stroke-width=".8">
         <circle cx="100" cy="100" r="92"/><circle cx="100" cy="100" r="86"/><circle cx="100" cy="100" r="80"/><circle cx="100" cy="100" r="74"/><circle cx="100" cy="100" r="68"/><circle cx="100" cy="100" r="62"/><circle cx="100" cy="100" r="56"/><circle cx="100" cy="100" r="50"/><circle cx="100" cy="100" r="44"/>
       </g>
       ${portada
-        ? `<image href="${esc(portada)}" x="64" y="64" width="72" height="72" preserveAspectRatio="xMidYMid slice" clip-path="url(#bkc-etiqueta)"/>`
-        : `<circle cx="100" cy="100" r="36" fill="#e8c547"/>
+        ? `<image href="${esc(portada)}" x="48" y="48" width="104" height="104" preserveAspectRatio="xMidYMid slice" clip-path="url(#bkc-etiqueta)"/>`
+        : `<circle cx="100" cy="100" r="52" fill="#e8c547"/>
       <text x="100" y="105" text-anchor="middle" font-family="'Permanent Marker', cursive" font-size="20" fill="#7a2e22">BKC</text>
       <text x="100" y="120" text-anchor="middle" font-family="Inter, sans-serif" font-size="6.5" font-weight="800" letter-spacing="1.2" fill="#1b1b1f">CARA B</text>`}
-      <circle cx="100" cy="100" r="36" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="1"/>
+      <circle cx="100" cy="100" r="52" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="1"/>
       <circle cx="100" cy="100" r="2.6" fill="#111114"/>
     </g>
     <path d="M100 100 L100 2 A98 98 0 0 1 169.3 30.7 Z" fill="#fff" opacity=".05"/>
@@ -699,9 +698,9 @@ ${portada ? `<img class="funda" src="${esc(portada)}" alt="Portada de «${esc(di
   <svg class="brazo" viewBox="0 0 200 200" aria-hidden="true">
     <g class="brazo-g">
       <rect x="196" y="6" width="14" height="22" rx="3" fill="#8c8c94"/>
-      <line x1="192" y1="22" x2="170" y2="60" stroke="#dcdce2" stroke-width="4.5" stroke-linecap="round"/>
-      <line x1="170" y1="60" x2="160" y2="86" stroke="#dcdce2" stroke-width="4.5" stroke-linecap="round"/>
-      <rect x="151" y="84" width="14" height="18" rx="2" fill="#2a2a30" stroke="#dcdce2" stroke-width="1.5" transform="rotate(20 158 93)"/>
+      <line x1="192" y1="22" x2="158" y2="124" stroke="#dcdce2" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="158" y1="124" x2="146" y2="150" stroke="#dcdce2" stroke-width="4.5" stroke-linecap="round"/>
+      <rect x="139" y="143" width="14" height="20" rx="2" fill="#2a2a30" stroke="#dcdce2" stroke-width="1.5" transform="rotate(25 146 153)"/>
       <circle cx="192" cy="22" r="11" fill="#b9b9c0" stroke="#6d6d75" stroke-width="2"/>
       <circle cx="192" cy="22" r="4" fill="#4a4a52"/>
     </g>
