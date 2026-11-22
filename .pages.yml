@@ -137,6 +137,9 @@ content:
       - { name: titulo, label: Título, type: string }
       - { name: subtitulo, label: Subtítulo, type: string }
       - { name: texto, label: Texto, type: text }
+      - { name: foto, label: Foto, type: image }
+      - { name: foto_texto, label: Descripción de la foto, type: string }
+      - { name: foto_encuadre, label: "Encuadre de la foto (posición, p. ej. 50% 50%)", type: string }
       - { name: disco, label: Disco, type: string }
       - { name: anio, label: Año del disco, type: string }
       - { name: spotify_album, label: "Código del álbum en Spotify (lo que va tras /album/ en el enlace)", type: string }
