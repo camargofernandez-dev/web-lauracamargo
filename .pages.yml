@@ -151,3 +151,51 @@ content:
         fields:
           - { name: nombre, label: Nombre, type: string }
           - { name: url, label: URL, type: string }
+
+  - name: tablon
+    label: "Tablón social (convocatorias de Sobre mí)"
+    type: file
+    path: content/tablon.json
+    format: json
+    fields:
+      - name: avisos
+        label: Convocatorias (cada una es un post-it)
+        description: "Las convocatorias cuya fecha ya ha pasado desaparecen solas del tablón."
+        type: object
+        list: true
+        fields:
+          - name: tipo
+            label: Tipo
+            type: select
+            options:
+              values: [Manifestación, Concentración, Conferencia, Charla, Mesa redonda, Presentación, Taller, Jornada, Acto]
+          - { name: titulo, label: Título, type: string }
+          - name: fecha
+            label: Fecha
+            type: date
+            options:
+              format: yyyy-MM-dd
+          - { name: hora, label: "Hora (p. ej. 18:00)", type: string }
+          - { name: lugar, label: "Lugar (p. ej. Plaça d'Espanya, Palma)", type: string }
+          - { name: enlace, label: "Enlace para más información (opcional)", type: string }
+          - name: color
+            label: Color del post-it
+            type: select
+            options:
+              values:
+                - { name: amarillo, label: Amarillo }
+                - { name: rosa, label: Rosa }
+                - { name: verde, label: Verde }
+                - { name: azul, label: Azul }
+                - { name: naranja, label: Naranja }
+                - { name: blanco, label: Blanco }
+          - name: fecha_fin
+            label: "Último día (solo si dura varios días)"
+            type: date
+            options:
+              format: yyyy-MM-dd
+      - { name: titulo, label: Título del tablón, type: string }
+      - { name: subtitulo, label: Subtítulo del tablón, type: string }
+      - { name: texto_vacio, label: "Texto del post-it cuando no hay convocatorias", type: string }
+      - { name: maximo, label: "Número máximo de post-its visibles", type: number }
+      - { name: ocultar_pasados, label: "Ocultar automáticamente las convocatorias pasadas", type: boolean }
