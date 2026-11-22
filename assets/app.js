@@ -736,17 +736,23 @@ async function abrirBKC() {
     <div class="bkc-caja">
       <button class="bkc-cerrar" aria-label="Cerrar">×</button>
       <div class="bkc-izq${b.foto ? " con-foto" : ""}">
-        ${b.foto ? `<figure class="bkc-foto"><img src="${esc(img(b.foto))}" alt="${esc(b.foto_texto || "")}" style="object-position:${esc(b.foto_encuadre || "50% 50%")}"></figure>` : ""}
-        <p class="bkc-pista">Has encontrado la cara B</p>
+        <div class="bkc-recuerdo">
+          ${b.foto ? `<figure class="bkc-foto"><img src="${esc(img(b.foto))}" alt="${esc(b.foto_texto || "")}" style="object-position:${esc(b.foto_encuadre || "50% 50%")}"></figure>` : ""}
+          <p class="bkc-pista">Has encontrado la cara B</p>
+        </div>
         ${vinilo(b.portada ? img(b.portada) : "", b.disco)}
       </div>
       <div class="bkc-der">
-        <p class="bkc-kicker">Cara B</p>
-        <h2 id="bkc-titulo" class="bkc-tag">${esc(b.titulo || "BKC")}</h2>
-        <p class="bkc-sub">${esc(b.subtitulo || "")}${b.disco ? ` · «${esc(b.disco)}» (${esc(b.anio)})` : ""}</p>
-        <div class="bkc-texto">${paras(b.texto)}</div>
-        ${id ? `<div class="bkc-spotify-wrap"><div id="bkc-spotify"></div></div>` : ""}
-        <div class="bkc-enlaces">${enlaces}</div>
+        <div class="bkc-intro">
+          <p class="bkc-kicker">Cara B</p>
+          <h2 id="bkc-titulo" class="bkc-tag">${esc(b.titulo || "BKC")}</h2>
+          <p class="bkc-sub">${esc(b.subtitulo || "")}${b.disco ? ` · «${esc(b.disco)}» (${esc(b.anio)})` : ""}</p>
+          <div class="bkc-texto">${paras(b.texto)}</div>
+        </div>
+        <div class="bkc-musica">
+          ${id ? `<div class="bkc-spotify-wrap"><div id="bkc-spotify"></div></div>` : ""}
+          <div class="bkc-enlaces">${enlaces}</div>
+        </div>
       </div>
     </div>
   </div>`);
