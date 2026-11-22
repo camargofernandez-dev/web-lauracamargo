@@ -277,7 +277,7 @@ body.bkc-abierto { overflow: hidden; }
 .vinilo { width: 100%; display: block; cursor: pointer; filter: drop-shadow(0 14px 24px rgba(0, 0, 0, .55)); }
 .vinilo:focus-visible { outline: 2px solid #e8c547; outline-offset: 4px; border-radius: 50%; }
 .brazo { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; filter: drop-shadow(0 6px 8px rgba(0, 0, 0, .5)); }
-.brazo-g { transform-box: view-box; transform-origin: 192px 22px; transform: rotate(-40deg); transition: transform 1s cubic-bezier(.4, .1, .2, 1); }
+.brazo-g { transform-box: view-box; transform-origin: 192px 22px; transform: rotate(-30deg); transition: transform 1s cubic-bezier(.4, .1, .2, 1); }
 .sonando .brazo-g { transform: rotate(0deg); }
 .vinilo .disco { transform-box: fill-box; transform-origin: center; animation: girar 1.8s linear infinite; animation-play-state: paused; }
 .sonando .vinilo .disco { animation-play-state: running; }
@@ -303,11 +303,11 @@ body.bkc-abierto { overflow: hidden; }
 .lp { position: relative; width: 100%; }
 .lp .funda { position: relative; z-index: 2; display: block; width: 72%; aspect-ratio: 1; object-fit: cover; border-radius: 3px; box-shadow: 10px 16px 34px rgba(0, 0, 0, .65); }
 .lp .tocadiscos { position: absolute; z-index: 1; right: 0; top: 50%; width: 72%; transform: translateY(-50%); }
-.lp.sin-funda .tocadiscos { position: relative; top: 0; transform: none; width: 92%; margin: 0 auto; }
-.bkc-izq.con-foto .bkc-foto { width: 84%; margin-top: 1.6rem; transform: rotate(-3deg); }
+.lp.sin-funda .tocadiscos { position: relative; top: 0; transform: none; width: 86%; margin: 0 auto 0 0; }
+.bkc-izq.con-foto .bkc-foto { width: 78%; margin-top: -2.4rem; transform: rotate(-4deg); align-self: flex-start; }
 @media (max-width: 760px) {
   .bkc-izq.con-foto { flex-direction: column; }
   .bkc-izq.con-foto .lp { width: 80%; align-self: flex-start; margin-top: .8rem; }
-  .bkc-izq.con-foto .bkc-foto { width: 68%; margin-top: .8rem; }
+  .bkc-izq.con-foto .bkc-foto { width: 64%; margin-top: -1.6rem; }
   .bkc-izq.con-foto .bkc-pista { display: none; }
 }
