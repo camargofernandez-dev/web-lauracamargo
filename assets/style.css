@@ -273,8 +273,15 @@ body.bkc-abierto { overflow: hidden; }
 .bkc-cerrar { position: absolute; top: .8rem; right: 1rem; background: none; border: 0; color: #f4efe6; font-size: 2rem; line-height: 1; cursor: pointer; opacity: .7; }
 .bkc-cerrar:hover { opacity: 1; }
 .bkc-izq { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; }
-.vinilo { width: 92%; filter: drop-shadow(0 14px 24px rgba(0, 0, 0, .55)); }
-.vinilo .disco { transform-box: fill-box; transform-origin: center; animation: girar 3.6s linear infinite; }
+.tocadiscos { position: relative; width: 92%; }
+.vinilo { width: 100%; display: block; cursor: pointer; filter: drop-shadow(0 14px 24px rgba(0, 0, 0, .55)); }
+.vinilo:focus-visible { outline: 2px solid #e8c547; outline-offset: 4px; border-radius: 50%; }
+.brazo { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; filter: drop-shadow(0 6px 8px rgba(0, 0, 0, .5)); }
+.brazo-g { transform-box: view-box; transform-origin: 192px 22px; transform: rotate(-30deg); transition: transform 1s cubic-bezier(.4, .1, .2, 1); }
+.sonando .brazo-g { transform: rotate(0deg); }
+.vinilo .disco { transform-box: fill-box; transform-origin: center; animation: girar 1.8s linear infinite; animation-play-state: paused; }
+.sonando .vinilo .disco { animation-play-state: running; }
+.bkc-spotify-wrap iframe, .bkc-spotify { border: 0; border-radius: 14px; margin: .6rem 0 1rem; display: block; width: 100%; }
 @keyframes girar { to { transform: rotate(360deg); } }
 .bkc-pista { font-family: 'Permanent Marker', cursive; color: #e8c547; font-size: 1.05rem; transform: rotate(-4deg); margin: 0; }
 .bkc-kicker { text-transform: uppercase; letter-spacing: .14em; font-size: .75rem; color: #e8c547; margin: 0; }
@@ -287,16 +294,16 @@ body.bkc-abierto { overflow: hidden; }
 .bkc-btn:hover { background: #e8c547; border-color: #e8c547; color: #141417; }
 @media (max-width: 760px) {
   .bkc-caja { grid-template-columns: 1fr; padding: 2.2rem 1.3rem 1.5rem; gap: 1rem; }
-  .bkc-izq { flex-direction: row; } .vinilo { width: 45%; } .bkc-pista { font-size: .9rem; }
+  .bkc-izq { flex-direction: row; } .tocadiscos { width: 45%; } .bkc-pista { font-size: .9rem; }
 }
-@media (prefers-reduced-motion: reduce) { .vinilo .disco, .bkc-trigger:hover svg { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .vinilo .disco, .bkc-trigger:hover svg { animation: none; } .brazo-g { transition: none; } }
 
 .bkc-foto { margin: 0; width: 100%; aspect-ratio: 508 / 344; overflow: hidden; border-radius: 3px; transform: rotate(3deg); box-shadow: 0 18px 36px rgba(0, 0, 0, .55); position: relative; z-index: 1; }
 .bkc-foto img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.12) brightness(1.04); }
-.bkc-izq.con-foto .vinilo { width: 64%; margin-top: -3.2rem; align-self: flex-end; position: relative; z-index: 2; }
+.bkc-izq.con-foto .tocadiscos { width: 64%; margin-top: -3.2rem; margin-right: 12%; align-self: flex-end; z-index: 2; }
 @media (max-width: 760px) {
   .bkc-izq.con-foto { flex-direction: column; }
   .bkc-izq.con-foto .bkc-foto { width: 88%; }
-  .bkc-izq.con-foto .vinilo { width: 38%; margin-top: -2.4rem; align-self: flex-end; }
+  .bkc-izq.con-foto .tocadiscos { width: 38%; margin-top: -2.4rem; margin-right: 10%; align-self: flex-end; }
   .bkc-izq.con-foto .bkc-pista { display: none; }
 }
