@@ -699,7 +699,8 @@ async function abrirBKC() {
   <div class="bkc" id="bkc" role="dialog" aria-modal="true" aria-labelledby="bkc-titulo">
     <div class="bkc-caja">
       <button class="bkc-cerrar" aria-label="Cerrar">×</button>
-      <div class="bkc-izq">
+      <div class="bkc-izq${b.foto ? " con-foto" : ""}">
+        ${b.foto ? `<figure class="bkc-foto"><img src="${esc(img(b.foto))}" alt="${esc(b.foto_texto || "")}" style="object-position:${esc(b.foto_encuadre || "50% 50%")}"></figure>` : ""}
         ${CASETE}
         <p class="bkc-pista">Has encontrado la cara B</p>
       </div>
