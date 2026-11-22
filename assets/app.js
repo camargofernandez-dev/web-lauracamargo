@@ -512,7 +512,7 @@ const PAGES = {
         ${paras(sitio.biografia)}
         ${sitio.cv ? `<p><a class="btn" href="${esc(img(sitio.cv))}" target="_blank" rel="noopener">Descargar CV (PDF)</a></p>` : ""}
         <button class="bkc-trigger" data-bkc title="¿Cara B?" aria-label="Descubre la cara B">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="12" r="2"/><path d="M10 12h4M6 19l2-3h8l2 3"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6.5" opacity=".45"/><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r=".7" fill="currentColor"/></svg>
           <span>Cara B</span>
         </button>
       </div>
@@ -674,16 +674,22 @@ function activarFormulario(sitio) {
 
 /* ---------- Easter egg: BKC ---------- */
 
-const CASETE = `
-<svg class="casete" viewBox="0 0 240 150" aria-hidden="true">
-  <rect x="4" y="4" width="232" height="142" rx="12" fill="#1b1b1f" stroke="#e8c547" stroke-width="3"/>
-  <rect x="22" y="18" width="196" height="62" rx="6" fill="#e8c547"/>
-  <text x="34" y="46" font-family="'Permanent Marker', cursive" font-size="26" fill="#1b1b1f">BKC</text>
-  <text x="34" y="68" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#1b1b1f">EL SUBLEVARTE · CARA B</text>
-  <rect x="58" y="88" width="124" height="40" rx="20" fill="#2a2a30"/>
-  <g class="bobina"><circle cx="82" cy="108" r="15" fill="#f4efe6"/><path d="M82 95v26M69 108h26M73 99l18 18M91 99l-18 18" stroke="#1b1b1f" stroke-width="3"/></g>
-  <g class="bobina"><circle cx="158" cy="108" r="15" fill="#f4efe6"/><path d="M158 95v26M145 108h26M149 99l18 18M167 99l-18 18" stroke="#1b1b1f" stroke-width="3"/></g>
-  <path d="M40 146l12-14h136l12 14" fill="none" stroke="#e8c547" stroke-width="3"/>
+const VINILO = `
+<svg class="vinilo" viewBox="0 0 200 200" aria-hidden="true">
+  <g class="disco">
+    <circle cx="100" cy="100" r="98" fill="#111114"/>
+    <g fill="none" stroke="#2c2c33" stroke-width=".8">
+      <circle cx="100" cy="100" r="92"/><circle cx="100" cy="100" r="86"/><circle cx="100" cy="100" r="80"/><circle cx="100" cy="100" r="74"/><circle cx="100" cy="100" r="68"/><circle cx="100" cy="100" r="62"/><circle cx="100" cy="100" r="56"/><circle cx="100" cy="100" r="50"/><circle cx="100" cy="100" r="44"/>
+    </g>
+    <circle cx="100" cy="100" r="36" fill="#e8c547"/>
+    <circle cx="100" cy="100" r="32" fill="none" stroke="#1b1b1f" stroke-width=".6" opacity=".5"/>
+    <text x="100" y="84" text-anchor="middle" font-family="Inter, sans-serif" font-size="5.5" font-weight="700" letter-spacing=".6" fill="#1b1b1f">EL SUBLEVARTE</text>
+    <text x="100" y="105" text-anchor="middle" font-family="'Permanent Marker', cursive" font-size="20" fill="#7a2e22">BKC</text>
+    <text x="100" y="120" text-anchor="middle" font-family="Inter, sans-serif" font-size="6.5" font-weight="800" letter-spacing="1.2" fill="#1b1b1f">CARA B</text>
+    <circle cx="100" cy="100" r="2.6" fill="#111114"/>
+  </g>
+  <path d="M100 100 L100 2 A98 98 0 0 1 169.3 30.7 Z" fill="#fff" opacity=".05"/>
+  <path d="M100 100 L100 198 A98 98 0 0 1 30.7 169.3 Z" fill="#fff" opacity=".05"/>
 </svg>`;
 
 async function abrirBKC() {
@@ -701,7 +707,7 @@ async function abrirBKC() {
       <button class="bkc-cerrar" aria-label="Cerrar">×</button>
       <div class="bkc-izq${b.foto ? " con-foto" : ""}">
         ${b.foto ? `<figure class="bkc-foto"><img src="${esc(img(b.foto))}" alt="${esc(b.foto_texto || "")}" style="object-position:${esc(b.foto_encuadre || "50% 50%")}"></figure>` : ""}
-        ${CASETE}
+        ${VINILO}
         <p class="bkc-pista">Has encontrado la cara B</p>
       </div>
       <div class="bkc-der">
