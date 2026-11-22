@@ -136,6 +136,7 @@ const icono = (n, cls = "") =>
 const LINEA_ESTILOS = [
   { c1: "#6e2a20", c2: "#9a4334", i: "megafono" },
   { c1: "#1f3a5f", c2: "#33598a", i: "mapa" },
+  { c1: "#2f4858", c2: "#4b6a7d", i: "cita" },
   { c1: "#24504d", c2: "#387571", i: "dialogo" },
   { c1: "#45325f", c2: "#6a5190", i: "musica" },
   { c1: "#7a5524", c2: "#a5763a", i: "puzle" },
@@ -218,7 +219,6 @@ function cabeceraPagina(kicker, titulo, intro, cifras, filtros) {
         <p class="kicker">${esc(kicker)}</p>
         <h1>${esc(titulo)}</h1>
         <div class="lead">${paras(intro)}</div>
-        <div class="cifras">${cifras.map(([n, t]) => `<div class="cifra"><strong>${n}</strong><span>${esc(t)}</span></div>`).join("")}</div>
         <div class="filtros">${filtros}</div>
       </div>
     </section>`;
@@ -236,7 +236,6 @@ const PAGES = {
       .map(
         (l, i) => `
         <a class="tarjeta" href="investigacion.html#${slug(l.titulo, i)}">
-          <span class="num">${String(i + 1).padStart(2, "0")}</span>
           <h3>${esc(l.titulo)}</h3>
           <p>${esc(l.resumen)}</p>
           <span class="mas">Leer más →</span>
@@ -290,14 +289,14 @@ const PAGES = {
 
     <section class="wrap seccion">
       <div class="seccion-cab">
-        <h2>Últimas apariciones</h2>
+        <h2>Participaciones recientes</h2>
         <span class="enlaces-cab"><a href="medios.html">Medios →</a> · <a href="conferencias.html">Conferencias →</a></span>
       </div>
       <div class="medios-lista">${ultimas}</div>
     </section>`;
   },
 
-  async investigacion() {
+  async investigacion(sitio) {
     const inv = await load("investigacion");
     const lineas = inv.lineas || [];
     const pubs = [...(inv.publicaciones || [])]
@@ -305,7 +304,7 @@ const PAGES = {
       .sort((a, b) => String(b.anio || "").localeCompare(String(a.anio || "")));
     const proyectos = (inv.proyectos || []).filter((p) => p.titulo);
     const lineaDe = (p) => lineas.findIndex((l) => l.titulo === p.linea);
-    const est = (i) => LINEA_ESTILOS[(i < 0 ? 4 : i) % LINEA_ESTILOS.length];
+    const est = (i) => LINEA_ESTILOS[(i < 0 ? LINEA_ESTILOS.length - 1 : i) % LINEA_ESTILOS.length];
     const nPubs = (i) => pubs.filter((p) => lineaDe(p) === i).length;
 
     const tarjetas = lineas
@@ -313,9 +312,8 @@ const PAGES = {
         const e = est(i);
         return `
         <a class="linea-card" href="#${slug(l.titulo, i)}" style="--c1:${e.c1};--c2:${e.c2}">
-          <span class="linea-card-top">${icono(e.i)}<b>${String(i + 1).padStart(2, "0")}</b></span>
+          <span class="linea-card-top">${icono(e.i)}</span>
           <h3>${esc(l.titulo)}</h3>
-          <span class="linea-card-n">${nPubs(i)} ${nPubs(i) === 1 ? "publicación" : "publicaciones"}</span>
         </a>`;
       })
       .join("");
@@ -327,22 +325,21 @@ const PAGES = {
         return `
         <article class="linea-bloque" id="${slug(l.titulo, i)}" style="--c1:${e.c1};--c2:${e.c2}">
           <div class="linea-panel">
-            <span class="linea-num">${String(i + 1).padStart(2, "0")}</span>
             ${icono(e.i, "linea-icono")}
           </div>
           <div class="linea-texto">
             <h2>${esc(l.titulo)}</h2>
             <p class="lead">${esc(l.resumen)}</p>
             ${paras(l.descripcion)}
-            ${n ? `<button class="btn btn-linea" data-ver-linea="${i}">Ver ${n === 1 ? "su publicación" : `sus ${n} publicaciones`} ↓</button>` : ""}
+            ${n ? `<button class="btn btn-linea" data-ver-linea="${i}">Ver ${n === 1 ? "su publicación destacada" : "sus publicaciones destacadas"} ↓</button>` : ""}
           </div>
         </article>`;
       })
       .join("");
 
-    const ordenTipos = ["Libro", "Artículo", "Capítulo de libro"];
+    const ordenTipos = ["Libro", "Artículo", "Capítulo de libro", "Tesis doctoral"];
     const tipos = [...new Set(pubs.map((p) => p.tipo).filter(Boolean))].sort((a, b) => (ordenTipos.indexOf(a) + 9) % 9 - (ordenTipos.indexOf(b) + 9) % 9);
-    const plural = { "Libro": "Libros", "Artículo": "Artículos", "Capítulo de libro": "Capítulos de libro" };
+    const plural = { "Libro": "Libros", "Artículo": "Artículos", "Capítulo de libro": "Capítulos de libro", "Tesis doctoral": "Tesis doctoral" };
     const filtrosLinea = [`<button class="filtro" data-grupo="linea" data-filtro="todo" aria-pressed="true">Todas las líneas</button>`]
       .concat(lineas.map((l, i) => `<button class="filtro" data-grupo="linea" data-filtro="${i}" aria-pressed="false"><span class="punto" style="background:${est(i).c1}"></span>${esc(l.titulo)}</button>`))
       .join("");
@@ -354,7 +351,7 @@ const PAGES = {
     const tarjetaPub = (p) => {
       const i = lineaDe(p);
       const e = est(i);
-      const ic = p.tipo === "Libro" ? "libro" : p.tipo === "Artículo" ? "articulo" : "capitulo";
+      const ic = p.tipo === "Libro" || p.tipo === "Tesis doctoral" ? "libro" : p.tipo === "Artículo" ? "articulo" : "capitulo";
       const interno = /^[\w-]+\.html/.test(p.enlace || "");
       return `
       <article class="pub" data-linea="${i}" data-tipo="${esc(p.tipo)}" style="--c1:${e.c1};--c2:${e.c2}">
@@ -422,7 +419,8 @@ const PAGES = {
     <section class="wrap lineas-detalle">${bloques}</section>
     <section class="publicaciones-sec" id="publicaciones">
       <div class="wrap">
-        <h2 class="sec-titulo">Publicaciones</h2>
+        <h2 class="sec-titulo">Publicaciones destacadas</h2>
+        <p class="lead nota-seleccion">Una selección de mi producción científica. ${(() => { const e = (sitio.enlaces || []).filter((x) => x.url && /orcid|dialnet|researchgate/i.test(x.url)); return e.length ? `La relación completa puede consultarse en ${e.map((x) => `<a href="${esc(safeUrl(x.url))}" target="_blank" rel="noopener">${esc(x.nombre)}</a>`).join(", ").replace(/, ([^,]*)$/, " y $1")}.` : ""; })()}</p>
         <div class="filtros">${filtrosLinea}</div>
         <div class="filtros filtros-tipo">${filtrosTipo}</div>
         ${listaPubs}
@@ -478,7 +476,7 @@ const PAGES = {
     filtrosConEfecto(".medio", "tipo");
     const cifras = [[lista.length, "apariciones"], ...tipos.slice(0, 3).map((t) => [cuenta(t), t === "Televisión" ? "en televisión" : t === "Radio" ? "en radio" : t === "Prensa" ? "en prensa" : t.toLowerCase()])];
     return `
-    ${cabeceraPagina("Medios", "En los medios", m.introduccion || "Entrevistas y apariciones en televisión, radio, prensa y pódcast.", cifras, filtros)}
+    ${cabeceraPagina("Medios", "Participaciones destacadas en medios", m.introduccion || "Entrevistas y apariciones en televisión, radio, prensa y pódcast.", cifras, filtros)}
     <section class="wrap medios-lista medios-pagina">${lista.map(itemMedio).join("")}</section>`;
   },
 
@@ -500,7 +498,7 @@ const PAGES = {
       .join("");
     const cifras = [[lista.length, "intervenciones"], [pres, "presentaciones del libro"], [lista.length - pres, "conferencias y seminarios"]];
     return `
-    ${cabeceraPagina("Conferencias", "Conferencias y presentaciones", m.introduccion_conferencias || "Conferencias, seminarios, debates y presentaciones de «Trumpismo discursivo» en universidades, librerías y centros culturales de España y América Latina.", cifras, filtros)}
+    ${cabeceraPagina("Conferencias", "Conferencias y presentaciones destacadas", m.introduccion_conferencias || "Conferencias, seminarios, debates y presentaciones de «Trumpismo discursivo» en universidades, librerías y centros culturales de España y América Latina.", cifras, filtros)}
     <div class="wrap conferencias-pagina">${grupos}</div>`;
   },
 
