@@ -246,3 +246,15 @@ a.medio:hover .medio-cta { text-decoration: underline; }
   .pub { grid-template-columns: 1fr; padding: 1.1rem; }
   .pub-icono { width: 2.4rem; height: 2.4rem; }
 }
+
+/* v1.3: sin numeración */
+.linea-panel { justify-content: center; align-items: center; }
+.linea-icono { width: 3.4rem; height: 3.4rem; align-self: center; }
+.linea-card-top { justify-content: flex-start; }
+.nota-seleccion { font-size: 1rem; margin: 0 0 1.4rem; max-width: 48rem; }
+.nota-seleccion a { color: var(--acento); }
+@media (max-width: 760px) { .linea-panel { justify-content: flex-start; } .linea-icono { width: 2rem; height: 2rem; } }
+.lineas-grid { grid-template-columns: repeat(3, 1fr); }
+.linea-card { min-height: 9.5rem; }
+@media (max-width: 900px) { .lineas-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .lineas-grid { grid-template-columns: 1fr; } }
