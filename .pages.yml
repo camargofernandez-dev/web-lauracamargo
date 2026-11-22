@@ -55,12 +55,12 @@ content:
             label: Tipo
             type: select
             options:
-              values: [Libro, Artículo, Capítulo de libro]
+              values: [Libro, Artículo, Capítulo de libro, Tesis doctoral]
           - name: linea
             label: Línea de investigación
             type: select
             options:
-              values: ["Discurso de la extrema derecha y trumpismo discursivo", "Sociolingüística del español en Mallorca", "Pragmática y análisis de la conversación", "Rap y discurso de los jóvenes", "Competencia pragmática y TEA"]
+              values: ["Discurso de la extrema derecha y trumpismo discursivo", "Sociolingüística del español en Mallorca", "Representación del discurso y cita en la narración oral", "Pragmática y análisis de la conversación", "Rap y discurso de los jóvenes", "Competencia pragmática y TEA"]
           - { name: enlace, label: Enlace o DOI (opcional), type: string }
       - name: proyectos
         label: Proyectos financiados
