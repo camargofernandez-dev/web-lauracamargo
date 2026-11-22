@@ -511,6 +511,10 @@ const PAGES = {
         <h1>${esc(sitio.nombre)}</h1>
         ${paras(sitio.biografia)}
         ${sitio.cv ? `<p><a class="btn" href="${esc(img(sitio.cv))}" target="_blank" rel="noopener">Descargar CV (PDF)</a></p>` : ""}
+        <button class="bkc-trigger" data-bkc title="¿Cara B?" aria-label="Descubre la cara B">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="12" r="2"/><path d="M10 12h4M6 19l2-3h8l2 3"/></svg>
+          <span>Cara B</span>
+        </button>
       </div>
     </section>`;
   },
@@ -668,6 +672,75 @@ function activarFormulario(sitio) {
   function aviso(t) { estado.className = "form-estado error"; estado.textContent = t; }
 }
 
+/* ---------- Easter egg: BKC ---------- */
+
+const CASETE = `
+<svg class="casete" viewBox="0 0 240 150" aria-hidden="true">
+  <rect x="4" y="4" width="232" height="142" rx="12" fill="#1b1b1f" stroke="#e8c547" stroke-width="3"/>
+  <rect x="22" y="18" width="196" height="62" rx="6" fill="#e8c547"/>
+  <text x="34" y="46" font-family="'Permanent Marker', cursive" font-size="26" fill="#1b1b1f">BKC</text>
+  <text x="34" y="68" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#1b1b1f">EL SUBLEVARTE · CARA B</text>
+  <rect x="58" y="88" width="124" height="40" rx="20" fill="#2a2a30"/>
+  <g class="bobina"><circle cx="82" cy="108" r="15" fill="#f4efe6"/><path d="M82 95v26M69 108h26M73 99l18 18M91 99l-18 18" stroke="#1b1b1f" stroke-width="3"/></g>
+  <g class="bobina"><circle cx="158" cy="108" r="15" fill="#f4efe6"/><path d="M158 95v26M145 108h26M149 99l18 18M167 99l-18 18" stroke="#1b1b1f" stroke-width="3"/></g>
+  <path d="M40 146l12-14h136l12 14" fill="none" stroke="#e8c547" stroke-width="3"/>
+</svg>`;
+
+async function abrirBKC() {
+  if (document.getElementById("bkc")) return;
+  if (!document.getElementById("fuente-bkc"))
+    document.head.insertAdjacentHTML("beforeend", '<link id="fuente-bkc" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap">');
+  let b = {};
+  try { b = await load("bkc"); } catch (e) { console.error(e); }
+  const enlaces = (b.enlaces || []).filter((e) => e.url)
+    .map((e) => `<a class="bkc-btn" href="${esc(safeUrl(e.url))}" target="_blank" rel="noopener">${esc(e.nombre)} ↗</a>`).join("");
+  const id = String(b.spotify_album || "").replace(/[^\w]/g, "");
+  document.body.insertAdjacentHTML("beforeend", `
+  <div class="bkc" id="bkc" role="dialog" aria-modal="true" aria-labelledby="bkc-titulo">
+    <div class="bkc-caja">
+      <button class="bkc-cerrar" aria-label="Cerrar">×</button>
+      <div class="bkc-izq">
+        ${CASETE}
+        <p class="bkc-pista">Has encontrado la cara B</p>
+      </div>
+      <div class="bkc-der">
+        <p class="bkc-kicker">Cara B</p>
+        <h2 id="bkc-titulo" class="bkc-tag">${esc(b.titulo || "BKC")}</h2>
+        <p class="bkc-sub">${esc(b.subtitulo || "")}${b.disco ? ` · «${esc(b.disco)}» (${esc(b.anio)})` : ""}</p>
+        <div class="bkc-texto">${paras(b.texto)}</div>
+        ${id ? `<iframe class="bkc-spotify" title="${esc(b.disco || "BKC")} en Spotify" src="https://open.spotify.com/embed/album/${id}?utm_source=generator&theme=0" width="100%" height="352" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>` : ""}
+        <div class="bkc-enlaces">${enlaces}</div>
+      </div>
+    </div>
+  </div>`);
+  const el = document.getElementById("bkc");
+  document.body.classList.add("bkc-abierto");
+  requestAnimationFrame(() => el.classList.add("visible"));
+  const cerrar = () => {
+    el.classList.remove("visible");
+    document.body.classList.remove("bkc-abierto");
+    setTimeout(() => el.remove(), 300);
+    if (location.hash === "#bkc") history.replaceState(null, "", location.pathname + location.search);
+    document.removeEventListener("keydown", esc_);
+  };
+  const esc_ = (ev) => ev.key === "Escape" && cerrar();
+  document.addEventListener("keydown", esc_);
+  el.addEventListener("click", (ev) => { if (ev.target === el) cerrar(); });
+  el.querySelector(".bkc-cerrar").addEventListener("click", cerrar);
+  el.querySelector(".bkc-cerrar").focus();
+}
+
+function activarBKC() {
+  let buf = "";
+  document.addEventListener("keydown", (ev) => {
+    if (/input|textarea|select/i.test(ev.target.tagName)) return;
+    buf = (buf + ev.key.toLowerCase()).slice(-3);
+    if (buf === "bkc") abrirBKC();
+  });
+  document.querySelectorAll("[data-bkc]").forEach((b) => b.addEventListener("click", abrirBKC));
+  if (location.hash === "#bkc") abrirBKC();
+}
+
 /* ---------- Arranque ---------- */
 
 (async function () {
@@ -686,6 +759,7 @@ function activarFormulario(sitio) {
     });
 
     if (page === "contacto") activarFormulario(sitio);
+    activarBKC();
 
     if (location.hash) document.querySelector(location.hash)?.scrollIntoView();
   } catch (e) {
