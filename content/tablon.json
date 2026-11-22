@@ -1,0 +1,8 @@
+{
+  "titulo": "Tablón social",
+  "subtitulo": "Convocatorias y llamadas a la acción",
+  "ocultar_pasados": true,
+  "maximo": 6,
+  "texto_vacio": "Pronto, nuevas convocatorias",
+  "avisos": []
+}
