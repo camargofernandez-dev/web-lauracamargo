@@ -12,6 +12,11 @@
       "descripcion": "Coordino el equipo PRESEEA-Palma, dentro del Proyecto para el Estudio Sociolingüístico del Español de España y de América, con un corpus de habla íntegramente recogido, transcrito y disponible en línea. Participo además en PRECAVES XXI, un macroproyecto sobre creencias y actitudes hacia las variedades del español.\n\nEstudio cómo se percibe el castellano de Mallorca frente a otras variedades, y los fenómenos de contacto entre catalán y castellano en tiempo real y aparente."
     },
     {
+      "titulo": "Representación del discurso y cita en la narración oral",
+      "resumen": "Las citas y el diálogo reconstruido en la narración oral conversacional: cómo representamos las palabras y los pensamientos propios y ajenos.",
+      "descripcion": "Es la línea con la que comenzó mi trayectoria investigadora. Mi tesis doctoral, «La representación del discurso en la narración oral conversacional. Estudio sociopragmático» (Universidad de Alcalá, 2004), dirigida por Francisco Moreno Fernández, aborda las citas y otras manifestaciones polifónicas en la conversación combinando la pragmática con la metodología sociolingüística, y propone una definición de cita conversacional.\n\nDesde entonces estudio cómo los hablantes reconstruyen diálogos dentro de sus relatos, la función evaluadora de las citas directas, la representación de los aspectos no verbales del discurso y la variación social y dialectal de la cita en corpus orales como el ALeCMan o PRESEEA."
+    },
+    {
       "titulo": "Pragmática y análisis de la conversación",
       "resumen": "Los fenómenos de la lengua oral espontánea: el silencio comunicativo, la cita, los marcadores y las preguntas de eco.",
       "descripcion": "Analizo la conversación espontánea desde una perspectiva interaccional: las funciones comunicativas del silencio, la representación del discurso ajeno en la narración oral, los marcadores del discurso o las interrogativas de eco.\n\nEsta línea conecta con la enseñanza de la pragmática del español como lengua extranjera, que impartí durante más de diez años."
@@ -151,7 +156,7 @@
       "titulo": "Registro coloquial en un atlas sociodialectal. La cita directa en narraciones del ALeCMan",
       "fuente": "Normas. Revista de Estudios Lingüísticos Hispánicos, 12, 169-191",
       "tipo": "Artículo",
-      "linea": "Pragmática y análisis de la conversación",
+      "linea": "Representación del discurso y cita en la narración oral",
       "enlace": "https://doi.org/10.7203/Normas.v12i1.25752"
     },
     {
@@ -215,6 +220,60 @@
       "fuente": "En A. M. Cestero e I. Penadés (eds.), Manual del profesor de ELE (pp. 963-1011). Servicio de Publicaciones de la Universidad de Alcalá",
       "tipo": "Capítulo de libro",
       "linea": "Pragmática y análisis de la conversación",
+      "enlace": ""
+    },
+    {
+      "anio": "2010",
+      "autores": "Camargo, L.",
+      "titulo": "Dialogues within oral narratives: functions and forms",
+      "fuente": "En D. Koike y L. Rodríguez Alfano (eds.), Dialogue in Spanish. Studies in functions and contexts (pp. 31-53). John Benjamins",
+      "tipo": "Capítulo de libro",
+      "linea": "Representación del discurso y cita en la narración oral",
+      "enlace": ""
+    },
+    {
+      "anio": "2008",
+      "autores": "Camargo, L.",
+      "titulo": "La cita como turno: el diálogo reconstruido en español oral desde la pragmática de corpus",
+      "fuente": "Pragmalingüística, 15-16, 49-70",
+      "tipo": "Artículo",
+      "linea": "Representación del discurso y cita en la narración oral",
+      "enlace": "https://doi.org/10.25267/Pragmalinguistica.2007.i15.03"
+    },
+    {
+      "anio": "2008",
+      "autores": "Camargo, L.",
+      "titulo": "Del enunciado a la enunciación: la representación de los aspectos no verbales del discurso en la interacción oral",
+      "fuente": "En J. L. Blas Arroyo, M. Casanova, M. Velando y J. Vellón (eds.), Discurso y sociedad II. Nuevas contribuciones al estudio de la lengua en contexto social (pp. 175-188)",
+      "tipo": "Capítulo de libro",
+      "linea": "Representación del discurso y cita en la narración oral",
+      "enlace": ""
+    },
+    {
+      "anio": "2006",
+      "autores": "Camargo, L.",
+      "titulo": "El diálogo reconstruido y la imagen positiva",
+      "fuente": "En M. Casado Velarde, R. González y M.ª V. Romero Gualda (eds.), Análisis del discurso: lengua, cultura, valores, vol. I (pp. 1241-1253). Arco/Libros",
+      "tipo": "Capítulo de libro",
+      "linea": "Representación del discurso y cita en la narración oral",
+      "enlace": ""
+    },
+    {
+      "anio": "2004",
+      "autores": "Camargo, L.",
+      "titulo": "Cuando «decir» equivale a «pensar»: la función evaluadora de las citas directas en la conversación en español",
+      "fuente": "Interlingüística, 15(1), 237-246",
+      "tipo": "Artículo",
+      "linea": "Representación del discurso y cita en la narración oral",
+      "enlace": ""
+    },
+    {
+      "anio": "2004",
+      "autores": "Camargo, L.",
+      "titulo": "La representación del discurso en la narración oral conversacional. Estudio sociopragmático",
+      "fuente": "Tesis doctoral dirigida por Francisco Moreno Fernández. Universidad de Alcalá",
+      "tipo": "Tesis doctoral",
+      "linea": "Representación del discurso y cita en la narración oral",
       "enlace": ""
     }
   ],
