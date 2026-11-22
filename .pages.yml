@@ -142,6 +142,7 @@ content:
       - { name: foto_encuadre, label: "Encuadre de la foto (posición, p. ej. 50% 50%)", type: string }
       - { name: disco, label: Disco, type: string }
       - { name: anio, label: Año del disco, type: string }
+      - { name: portada, label: Portada del disco (etiqueta del vinilo), type: image }
       - { name: spotify_album, label: "Código del álbum en Spotify (lo que va tras /album/ en el enlace)", type: string }
       - name: enlaces
         label: Enlaces
