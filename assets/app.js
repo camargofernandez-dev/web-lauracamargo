@@ -674,23 +674,51 @@ function activarFormulario(sitio) {
 
 /* ---------- Easter egg: BKC ---------- */
 
-const VINILO = `
-<svg class="vinilo" viewBox="0 0 200 200" aria-hidden="true">
-  <g class="disco">
-    <circle cx="100" cy="100" r="98" fill="#111114"/>
-    <g fill="none" stroke="#2c2c33" stroke-width=".8">
-      <circle cx="100" cy="100" r="92"/><circle cx="100" cy="100" r="86"/><circle cx="100" cy="100" r="80"/><circle cx="100" cy="100" r="74"/><circle cx="100" cy="100" r="68"/><circle cx="100" cy="100" r="62"/><circle cx="100" cy="100" r="56"/><circle cx="100" cy="100" r="50"/><circle cx="100" cy="100" r="44"/>
+const vinilo = (portada) => `
+<div class="tocadiscos">
+  <svg class="vinilo" viewBox="0 0 200 200" role="button" tabindex="0" aria-label="Reproducir o pausar">
+    <defs><clipPath id="bkc-etiqueta"><circle cx="100" cy="100" r="36"/></clipPath></defs>
+    <g class="disco">
+      <circle cx="100" cy="100" r="98" fill="#111114"/>
+      <g fill="none" stroke="#2c2c33" stroke-width=".8">
+        <circle cx="100" cy="100" r="92"/><circle cx="100" cy="100" r="86"/><circle cx="100" cy="100" r="80"/><circle cx="100" cy="100" r="74"/><circle cx="100" cy="100" r="68"/><circle cx="100" cy="100" r="62"/><circle cx="100" cy="100" r="56"/><circle cx="100" cy="100" r="50"/><circle cx="100" cy="100" r="44"/>
+      </g>
+      ${portada
+        ? `<image href="${esc(portada)}" x="64" y="64" width="72" height="72" preserveAspectRatio="xMidYMid slice" clip-path="url(#bkc-etiqueta)"/>`
+        : `<circle cx="100" cy="100" r="36" fill="#e8c547"/>
+      <text x="100" y="105" text-anchor="middle" font-family="'Permanent Marker', cursive" font-size="20" fill="#7a2e22">BKC</text>
+      <text x="100" y="120" text-anchor="middle" font-family="Inter, sans-serif" font-size="6.5" font-weight="800" letter-spacing="1.2" fill="#1b1b1f">CARA B</text>`}
+      <circle cx="100" cy="100" r="36" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="1"/>
+      <circle cx="100" cy="100" r="2.6" fill="#111114"/>
     </g>
-    <circle cx="100" cy="100" r="36" fill="#e8c547"/>
-    <circle cx="100" cy="100" r="32" fill="none" stroke="#1b1b1f" stroke-width=".6" opacity=".5"/>
-    <text x="100" y="84" text-anchor="middle" font-family="Inter, sans-serif" font-size="5.5" font-weight="700" letter-spacing=".6" fill="#1b1b1f">EL SUBLEVARTE</text>
-    <text x="100" y="105" text-anchor="middle" font-family="'Permanent Marker', cursive" font-size="20" fill="#7a2e22">BKC</text>
-    <text x="100" y="120" text-anchor="middle" font-family="Inter, sans-serif" font-size="6.5" font-weight="800" letter-spacing="1.2" fill="#1b1b1f">CARA B</text>
-    <circle cx="100" cy="100" r="2.6" fill="#111114"/>
-  </g>
-  <path d="M100 100 L100 2 A98 98 0 0 1 169.3 30.7 Z" fill="#fff" opacity=".05"/>
-  <path d="M100 100 L100 198 A98 98 0 0 1 30.7 169.3 Z" fill="#fff" opacity=".05"/>
-</svg>`;
+    <path d="M100 100 L100 2 A98 98 0 0 1 169.3 30.7 Z" fill="#fff" opacity=".05"/>
+    <path d="M100 100 L100 198 A98 98 0 0 1 30.7 169.3 Z" fill="#fff" opacity=".05"/>
+  </svg>
+  <svg class="brazo" viewBox="0 0 200 200" aria-hidden="true">
+    <g class="brazo-g">
+      <rect x="196" y="6" width="14" height="22" rx="3" fill="#8c8c94"/>
+      <line x1="192" y1="22" x2="148" y2="118" stroke="#dcdce2" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="148" y1="118" x2="134" y2="144" stroke="#dcdce2" stroke-width="4.5" stroke-linecap="round"/>
+      <rect x="125" y="138" width="14" height="20" rx="2" fill="#2a2a30" stroke="#dcdce2" stroke-width="1.5" transform="rotate(28 132 148)"/>
+      <circle cx="192" cy="22" r="11" fill="#b9b9c0" stroke="#6d6d75" stroke-width="2"/>
+      <circle cx="192" cy="22" r="4" fill="#4a4a52"/>
+    </g>
+  </svg>
+</div>`;
+
+function spotifyAPI() {
+  return new Promise((res) => {
+    if (window.__spotifyAPI) return res(window.__spotifyAPI);
+    window.onSpotifyIframeApiReady = (api) => { window.__spotifyAPI = api; res(api); };
+    if (!document.getElementById("spotify-api")) {
+      const sc = document.createElement("script");
+      sc.id = "spotify-api";
+      sc.src = "https://open.spotify.com/embed/iframe-api/v1";
+      sc.async = true;
+      document.body.appendChild(sc);
+    }
+  });
+}
 
 async function abrirBKC() {
   if (document.getElementById("bkc")) return;
@@ -707,7 +735,7 @@ async function abrirBKC() {
       <button class="bkc-cerrar" aria-label="Cerrar">×</button>
       <div class="bkc-izq${b.foto ? " con-foto" : ""}">
         ${b.foto ? `<figure class="bkc-foto"><img src="${esc(img(b.foto))}" alt="${esc(b.foto_texto || "")}" style="object-position:${esc(b.foto_encuadre || "50% 50%")}"></figure>` : ""}
-        ${VINILO}
+        ${vinilo(b.portada ? img(b.portada) : "")}
         <p class="bkc-pista">Has encontrado la cara B</p>
       </div>
       <div class="bkc-der">
@@ -715,7 +743,7 @@ async function abrirBKC() {
         <h2 id="bkc-titulo" class="bkc-tag">${esc(b.titulo || "BKC")}</h2>
         <p class="bkc-sub">${esc(b.subtitulo || "")}${b.disco ? ` · «${esc(b.disco)}» (${esc(b.anio)})` : ""}</p>
         <div class="bkc-texto">${paras(b.texto)}</div>
-        ${id ? `<iframe class="bkc-spotify" title="${esc(b.disco || "BKC")} en Spotify" src="https://open.spotify.com/embed/album/${id}?utm_source=generator&theme=0" width="100%" height="352" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>` : ""}
+        ${id ? `<div class="bkc-spotify-wrap"><div id="bkc-spotify"></div></div>` : ""}
         <div class="bkc-enlaces">${enlaces}</div>
       </div>
     </div>
@@ -735,6 +763,29 @@ async function abrirBKC() {
   el.addEventListener("click", (ev) => { if (ev.target === el) cerrar(); });
   el.querySelector(".bkc-cerrar").addEventListener("click", cerrar);
   el.querySelector(".bkc-cerrar").focus();
+
+  const izq = el.querySelector(".bkc-izq");
+  if (!id) { izq.classList.add("sonando"); return; }
+  const iframeSimple = () => {
+    const h = document.getElementById("bkc-spotify");
+    if (h) h.outerHTML = `<iframe class="bkc-spotify" title="${esc(b.disco || "BKC")} en Spotify" src="https://open.spotify.com/embed/album/${id}?utm_source=generator&theme=0" width="100%" height="352" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`;
+    izq.classList.add("sonando");
+  };
+  const plazo = setTimeout(iframeSimple, 7000);
+  spotifyAPI().then((api) => {
+    const h = document.getElementById("bkc-spotify");
+    if (!h) return;
+    api.createController(h, { uri: `spotify:album:${id}`, width: "100%", height: 352 }, (ctrl) => {
+      clearTimeout(plazo);
+      ctrl.addListener("playback_update", (e) => izq.classList.toggle("sonando", !e.data.isPaused));
+      const disco = izq.querySelector(".vinilo");
+      const alternar = () => ctrl.togglePlay();
+      disco.addEventListener("click", alternar);
+      disco.addEventListener("keydown", (ev) => (ev.key === "Enter" || ev.key === " ") && (ev.preventDefault(), alternar()));
+      const quitar = new MutationObserver(() => { if (!document.body.contains(el)) { ctrl.destroy?.(); quitar.disconnect(); } });
+      quitar.observe(document.body, { childList: true });
+    });
+  });
 }
 
 function activarBKC() {
